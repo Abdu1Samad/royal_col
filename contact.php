@@ -36,46 +36,14 @@
   <!-- my-css-link-2  -->
   <link rel="stylesheet" href="css-files-floder/contact.css">
 
+  <!-- php  -->
+  <?php
+  include 'navbar.php';
+  ?> 
+
 </head>
 
 <body>
-
-  <!-- Navbar  -->
-  <nav class="navbar navbar-expand-md bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="images/Navbar-logo.png" alt=""></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-        style="background-color: white;">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">PRODUCTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">BLOGS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">ABOUT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">CONTACT US</a>
-          </li>
-        </ul>
-        <div class="navbar-icons">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-user-large"></i>
-          <i class="fa-solid fa-cart-shopping nav-cart-icon"></i>
-        </div>
-      </div>
-    </div>
-  </nav> <!--Navbar-End-->
-
     <!-- Contact-label  -->
 
     <section class="contactlabel">
@@ -155,83 +123,11 @@
   </div>
   </section>
 
-
-
-
-
+   <!-- php  -->
+   <?php
+     include 'footer.php';
+   ?>
     
-    
-  
-
-
-
-
-  <!-- footer  -->
-
-  <section class="footer-main-section ">
-    <div class="footer-container row">
-      <div class="footer-first-section col-2">
-        <h3>Royal Collection </h3>
-        <ul>
-          <li class="footer-first-li"><i class="fa-solid fa-location-dot"></i> karachi,lyari,near <br> <span
-              class="footer-span">abdullah haroon collage </span></li>
-          <div class="footer-first-ul-edit">
-            <li><i class="fa-regular fa-envelope footer-email-li"></i>Sammadaltaf43@gmail.com</li>
-            <li><i class="fa-solid fa-phone"></i>03373169656</li>
-          </div>
-        </ul>
-      </div>
-      <div class="footer-information-section col-2">
-        <div class="footer-information">
-          <h6>Information</h6>
-          <ul>
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Blog</li>
-            <li>Services</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-account-section col-2">
-        <div class="myaccount">
-          <h6>My Account</h6>
-          <ul>
-            <li>My account</li>
-            <li>Checkout</li>
-            <li>Contact</li>
-            <li>Wishlist</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-social-section col-2">
-        <div class="footer-social-links">
-          <h6>Social links</h6>
-          <p>CONNECT WITH US ON</p>
-          <div class="footer-socialmedia-icons">
-            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href=""><i class="fa-brands fa-whatsapp"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-line"></div>
-      <div class="copyright-container row">
-        <div class="footer-content row">
-          <div class="copyright-para col-4">
-            <p>&copy; Designed and developed by ABDUL SAMAD.</p>
-          </div>
-          <div class="copyright-payment-method col-4">
-            <label for="">Payment methods:</label>
-            <a href=""><img src="images/footer-payment-1.png" alt=""></a>
-            <a href=""><img src="images/footer-payment-2.png" alt=""></a>
-            <a href=""><img src="images/footer-payment-3.png" alt=""></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
  <!-- Bootstrap-Javascript-link -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
