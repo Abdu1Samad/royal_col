@@ -57,19 +57,13 @@
       if(strlen($name) < 3){
         $_SESSION['name_error'] = "name must be in 3 characters";  
         $error = true;
-      }else{
+      }
+      else{
         unset($_SESSION['name_error']);
       }
 
-      if(strlen($pass) < 8){
-        $_SESSION['pass_error'] = "Password must be in 8 characters";  
-        $error = true;
-      }else{
-        unset($_SESSION['pass_error']);
-      }
-
-      if(!preg_match('/[!@#$%^&*()_\-{}\[\]:;"\'<>,.?~`]/',$pass)){
-        $_SESSION['special_char_error'] = "password must contain at least one special character";
+      if(!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/" , $pass)){
+        $_SESSION['special_char_error'] = "Password length must be 8 chars, 1 Uppercase, 1 Lowercase & atleast 1 special character.";
         $error = true;
       }else{
         unset($_SESSION['special_char_error']);
@@ -109,19 +103,20 @@
 </head>
 <body>
 
-    <!-- php  -->
-    <?php
-    if(isset($_SESSION['success_message'])){
-      echo '<div class="success-message">'.$_SESSION['success_message'].'</div>';
-      unset($_SESSION['success_message']);
-    }
-    
-    ?>
-
     <!-- signup-form  -->
 
     <section class="signup-form-section">
-        <div class="signup-form-container">
+              <div class="signup-form-container">
+                    <?php
+          if(isset($_SESSION['success_message'])){
+            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Success!</strong> Your account has been created successfully.
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+            unset($_SESSION['success_message']);
+          }    
+          ?>
+
             <div class="signup-from-heading">
                 <h3>Signup</h3>
             </div>
@@ -151,9 +146,9 @@
                     <label for="">Password</label>
                     <input type="password" name="password" id="" required>
                     <?php
-                    if(isset($_SESSION['pass_error'])){   
-                      echo '<div class="error-message">'.$_SESSION['pass_error'].'</div>';
-                      unset($_SESSION['pass_error']);
+                    if(isset($_SESSION['special_char_error'])){   
+                      echo '<div class="error-message">'.$_SESSION['special_char_error'].'</div>';
+                      unset($_SESSION['special_char_error']);
                     }
                     ?>
                 </div>
