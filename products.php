@@ -1,3 +1,17 @@
+<?php
+  include_once('connection.php');
+
+  $fetchProducts = "
+    select * from products;
+  ";
+
+  $result = mysqli_query($con, $fetchProducts);
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +48,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
-             
+    
   <!-- my-css-link  -->
   <link rel="stylesheet" href="css-files-floder/style.css">
 
@@ -43,7 +57,13 @@
   
   <!-- php  -->
   <?php
+
     include 'navbar.php';
+    include 'connection.php';
+
+    $fetchdata = "SELECT * FROM products";
+    $fetch_query = mysqli_query($con,$fetchdata);
+
   ?> 
 
 </head>
@@ -60,8 +80,50 @@
         </div>
     </section>
 
-  
 
+    <section class="new-arival-section">
+     <div class="new-arrival-container">
+      <!-- php  -->
+      <?php
+        while($row = mysqli_fetch_assoc($fetch_query)){
+     
+      ?>
+     <div class="products-card">
+            <div class="card-content">
+            <div class="card-img">
+              <img src="<?php echo $row['product_img'];?>" alt="">
+            </div>
+          <div class="card-title">
+            <p><?php echo $row['product_name'];?></p>
+          </div>
+          <div class="card-price">
+            <p>pkr<span><?php echo $row['product_price'];?></span></p>
+          </div>
+          <div class="card-ratings">
+            <!-- php  -->
+            <?php
+            $ratings = $row['product_rating'];
+            for($i = 1; $i <= 5; $i ++){
+              if($i <=$ratings){
+                echo '<i class="fa-solid fa-star"></i>';
+              }else{
+                echo ' <i class="fa-regular fa-star"></i>';
+              }
+            }
+            ?>
+          </div>
+          <div class="card-desription">
+            <p><?php echo $row['product-desc']?>;</p>
+          </div>
+        </div>
+      </div>
+          <?php
+          }
+        ?>
+     </div>
+    </section>  
+
+   
 
 
   <!-- php  -->

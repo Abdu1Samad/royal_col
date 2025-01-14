@@ -63,12 +63,21 @@ body{
 }
 .navbar-icons{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     font-size: 18px;
     cursor: pointer;
     color: white;
     transition: all ease-in-out 0.3s;
 }
+
+.navbar-icons .auth-btn{
+    color: white;
+    padding: 0 !important;
+}
+
+
 .nav-heart-icon:hover , .nav-cart-icon:hover{
     transform: scale(1.2);
 }
@@ -304,128 +313,90 @@ body{
 
 }
 
-/* Trending-products  */
+/* New-Arrival-products  */
 
-.trending-heading{
-    text-align: center;
-    margin-top: 100px;
+.new-arival-section{
     width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
 }
-.trending-heading h1{
-    font-size: 70px;
-    font-family: Satisfy;
-}
-.trending-container{
+.new-arrival-container{
+    /* border: 1px solid black;  */
+    margin: 20px;
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
-    /* position: relative; */
+    align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    overflow-x: hidden;
 }
-.trending-container .card{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 16px; 
+.new-arrival-heading{
     text-align: center;
-    height: auto;
-    margin-top: 50px;
-    background-color: whitesmoke;
-    width: 300px !important;
-    position: relative;
-    overflow: hidden;
 }
-.trending-container .card-body{
-    padding: 0;
-    position: relative;
-    z-index: 2 ;
+.new-arrival-heading h2{
+    font-size: 70px;
 }
-.trending-container .card img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    /* padding: 20px 20px; */
-    /* border-radius: 16px; */
-    transition: transform 0.3s ease-in-out ;
-}
-.card img:hover{
-    transform: scale(1.2);
-    object-position: center;
-}
-.trending-container .card-title{
-    font-weight: 900;
-    padding-top: 20px;
-}
-.trending-cards-price{
-    padding-bottom: 10px;
-}
-.trending-cards-price span{
-    font-size: 24px;
-    font-weight: 700;
-}
-.trending-container .products-ratings{
-    font-size: 20px;
-    letter-spacing: 0px;
-    color: #fca504 ;
-    padding-bottom: 20px;
-}
-.trending-container .product-card-btn{
-    position: relative;
-    top: 35px;
+.products-card{
+    width: 300px;
+    height: 480px;
+    /* border:1px solid grey; */
+    margin-left: 20px;
+    border-radius: 16px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    line-height: 28px;
     display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    margin-top: 50px;
 }
-.trending-container a{
+.card-img{
     width: 100%;
-    height:50px;
-    border-top-right-radius:0px;
-    border-top-left-radius:0px;
-    border-bottom-right-radius:16px;
-    border-bottom-left-radius:16px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+.card-img img{
+    width:100%;
+    height: 100%;
+    object-fit:cover;
+    object-position:top;
+    border-top-left-radius:16px;
+    border-top-right-radius:16px;
+}
+.card-title{
+    padding-left: 12px;
+    font-size: 16px;
+    padding-top: 20px;
+}
+.card-title p{
+    margin: 0;
+    padding: 0;
+}
+.card-price{
+    padding-left: 12px;
+}
+.card-price p{
+    padding: 0;
+    margin: 0;
+}
+.card-price p span{
     font-size: 20px;
-    background-color:black;
     font-weight: 600;
-    border: none;
-    transition: all ease-in-out 0.4s;
-    color:white;
+    padding-left: 4px;
 }
-.trending-container a:hover{
-    background-color: transparent;
-    color: black;
-    border: 1px solid silver;
+.card-ratings{
+    padding-left:12px;
+    color:gold;
+}
+.card-desription{
+    width: 300px;
+    padding-left: 12px;
+    padding-right: 8px;
+    line-height: 24px;
+    font-size: 16px;
 }
 
-/* Responsive-Trending-products */
-
-@media(max-width:904px){
-
-    .trending-container .card{
-        width: 40% !important;
-    }
-
-}
-@media(max-width:700px){
-
-    .trending-container .card{
-        width: 80% !important;
-
-    }
-    .trending-container .card img{
-        height: 250px;
-    }
-    
-}
 
 /* products-categories  */
-
 
 .categories-heading{
     text-align: center;

@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">HOME</a>
+            <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="products.php">PRODUCTS</a>
@@ -28,7 +28,29 @@
         </ul>
         <div class="navbar-icons">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-user-large"></i>
+          <div class="dropdown">
+            <button class="btn auth-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-user-large"></i>
+            </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <?php if(isset($_SESSION['user_authenticated'])) : ?>
+
+            <li>
+              <form method="POST">
+                <button class="dropdown-item">Logout</button>
+              </form>
+            </li>
+
+            
+            <?php else : ?>
+              
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Signup</a></li>
+
+            <?php endif; ?>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+          </div>
           <i class="fa-solid fa-cart-shopping nav-cart-icon"></i>
         </div>
       </div>

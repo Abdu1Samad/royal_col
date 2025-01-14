@@ -28,6 +28,11 @@
     <!-- php  -->
     <?php
     include 'navbar.php';
+    include 'connection.php';
+
+    $new_arrival = "SELECT * FROM products WHERE product_id BETWEEN 1 AND 8 ORDER BY product_id DESC";
+    $new_arrival_query = mysqli_query($con,$new_arrival);
+
     ?> 
 
 </head>
@@ -66,256 +71,54 @@
     </div> <!--Carosuel-End-->
 </div>
 
-    <!-- Trending-products  -->
+    <!-- new-arrival-products  -->
 
-    <section class="trending-section">
-      <div class="trending-heading">
-        <h1>Trending Products</h1>
-      </div>
-      <div class="trending-container">
-          <!-- card-1  -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
+    <div class="new-arrival-heading">
+     <h2>NEW ARRIVALS</h2> 
+    </div>
+      <section class="new-arival-section">
+        <divcontainer class="new-arrival-container">
+         <!-- php  -->
+         <?php
+          while($row = mysqli_fetch_Assoc($new_arrival_query)){
+         ?>
+          <div class="products-card">  
+          <div class="card-content">
+            <div class="card-img">
+              <img src="<?php echo $row['product_img'];?>" alt="">
             </div>
-            </div>
-           <!-- card-2 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-          <!-- card-3 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-            <!-- card-4 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-            <!-- card-5 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-             <!-- card-6 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-             <!-- card-7 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-             <!-- card-8 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-             <!-- card-9  -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-             <!-- card-10 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-             <!-- card-11 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
+          <div class="card-title">
+            <p><?php echo $row['product_name'];?></p>
+          </div>
+          <div class="card-price">
+            <p>pkr<span><?php echo $row['product_price'];?></span></p>
+          </div>
+          <div class="card-ratings">
+               <!-- php  -->
+            <?php
+              $ratings = $row['product_rating'];
+              for($i = 1; $i <= 5; $i ++){
+                if($i <=$ratings){
+                  echo '<i class="fa-solid fa-star"></i>';
+                }else{
+                  echo ' <i class="fa-regular fa-star"></i>';
+                }
+              }
+            ?>
+          </div>
+          <div class="card-desription">
+            <p><?php echo $row['product-desc']?>;</p>
+          </div>
+        </div>
+        </div>
+        <?php
+           }
+         ?>
+        </divcontainer>
+        </section>
 
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-             <!-- card-12 -->
-          <div class="card" style="width: 18rem;">
-            <img
-              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D"
-              class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <div class="trending-cards-price">
-                <label for="">PKR<span>500</span></label>
-              </div>
-              <div class="products-ratings">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-                <a href="#" class="btn btn-primary">ADD TO CART</a>
-            </div>
-            </div>
-            </div> <!-- container-div -->
-           </section>
+
+
 
 
            <!-- Categories-products  -->
