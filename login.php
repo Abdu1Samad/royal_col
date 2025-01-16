@@ -39,13 +39,40 @@
   <link rel="stylesheet" href="css-files-floder/style.css">
 
   <!-- my-css-link  -->
-  <link rel="stylesheet" href="css-files-floder/signup.css">
+  <link rel="stylesheet" href="css-files-floder/login.css">
 
   <!-- php  -->
   <?php
     session_start();
     include 'navbar.php';
     include 'connection.php';
+
+    if(isset($_POST['submit'])){
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+      
+      $fetchdata_login = "SELECT * FROM signup where signup_email = '$email'";
+      $login_query = mysqli_query($con,$fetchdata_login);
+
+      if(mysqli_num_rows($login_query) > 0){
+        $user = mysqli_fetch_assoc($login_query);
+
+        if($password == $user['signup_password']){
+          $_SESSION['login_message'] = "You have succesfully login !";
+          $_SESSION['login_message_type'] = "success";
+        }else{
+          $_SESSION['login_message'] = "Incorrect password !";
+          $_SESSION['login_message_type'] = "error";
+        }
+      }else{
+        $_SESSION['login_message'] = "No user found with that email please signup !";
+        $_SESSION['login_message_type'] = "error";
+      }
+
+
+    }
+
+
   ?>
      
 </head>
@@ -55,8 +82,28 @@
 
     <section class="login-form-section">
         <div class="login-form-container">
+          <!-- php  -->
+           <?php
+           if(isset($_SESSION['login_message'])){
+
+            $message = $_SESSION['login_message'];
+            $message_type = $_SESSION['login_message_type'];
+
+            if($message_type == 'success'){
+              $alert_class = 'alert-success';
+            }elseif($message_type == 'error'){
+              $alert_class = 'alert-danger';
+            }
+
+            echo '<div class="alert '. $alert_class .' alert-dismissible fade show" role="alert">
+            <strong>' .$_SESSION["login_message"]. '</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+            unset($_SESSION['login_message']);
+           }
+           ?>
             <div class="login-from-heading">
-                <h3>login</h3>
+                <h3>Login</h3>
             </div>
             <form action="" method="POST">
                 <div class="login-input-1">
@@ -67,12 +114,15 @@
                     <label for="">Password</label>
                     <input type="password" name="password" id="" required>
                 </div>
+                <div class="forget-password-div">
+                  <a href="">Forgot password?</a>
+                </div>
                 <div class="login-input-5">
                   <input type="submit" value="submit" name="submit">
                 </div>
                 
                 <div class="login-input-para">
-                    <p>You have an account? <a href=sign.php">Signup</a></p>
+                    <p>Don't have an account? <a href="signup.php">Signup</a></p>
                 </div>
             </form>
         </div>

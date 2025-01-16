@@ -91,7 +91,7 @@
             <p><?php echo $row['product_name'];?></p>
           </div>
           <div class="card-price">
-            <p>pkr<span><?php echo $row['product_price'];?></span></p>
+            <p>PKR:<span><?php echo $row['product_price'];?></span></p>
           </div>
           <div class="card-ratings">
                <!-- php  -->

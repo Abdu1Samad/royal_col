@@ -44,8 +44,8 @@
             
             <?php else : ?>
               
-            <li><a class="dropdown-item" href="#">Login</a></li>
-            <li><a class="dropdown-item" href="#">Signup</a></li>
+            <li><a class="dropdown-item" href="login.php">Login</a></li>
+            <li><a class="dropdown-item" href="signup.php">Signup</a></li>
 
             <?php endif; ?>
             <li><a class="dropdown-item" href="#">Something else here</a></li>

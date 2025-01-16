@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", serif;
+}
+.login-form-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.login-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 180px;
+    flex-direction: column;
+    padding: 20px;
+    border: 2px solid grey;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+.login-from-heading h3{
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+    font-size: 40px;
+}
+.login-form-container form{
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+.login-form-container input{
+    display: flex;
+    flex-direction:column ;
+    width: 500px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid grey;
+    padding-left: 10px;
+}
+.login-form-container label{
+    padding-bottom: 8px;
+}
+.forget-password-div a{
+    text-decoration: none;
+}
+.login-input-5 input{
+    background-color:black;
+    color: white;
+    font-size: 20px;
+    border: 1px solid black;
+    transition :all ease-in-out 0.3s;
+    border-radius: 4px;
+}
+.login-input-5 input:hover{
+    background-color: transparent;
+    color: black;
+}
+.login-input-para a{
+    text-decoration: none;
+    font-size: 18px;
+}
+/* .alert{
+    width: 500px;
+} */
+
+
+/* Responsive-login-page  */
+
+@media (max-width:600px){
+
+    .login-form-container{
+    
+    }
+    .login-form-container input{
+        width: 250px;
+    }
+}
