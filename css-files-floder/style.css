@@ -34,7 +34,8 @@ body{
     display: flex;
     width: 100px;
     object-fit: cover;
-    height: 60px;
+    height: 80px;
+    padding: 8px;
 }
 .navbar-nav{
     display: flex;
@@ -76,6 +77,7 @@ body{
 .navbar-icons .auth-btn{
     color: white;
     padding: 0 !important;
+    font-size: 18px;
 }
 
 
