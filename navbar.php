@@ -48,7 +48,7 @@
             <li><a class="dropdown-item" href="signup.php">Signup</a></li>
 
             <?php endif; ?>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="admin/admin-product.php">Admin panel</a></li>
           </ul>
           </div>
           <i class="fa-solid fa-cart-shopping nav-cart-icon"></i>

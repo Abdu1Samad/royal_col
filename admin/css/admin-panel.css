@@ -1,3 +1,23 @@
+
+
+
+/* my-custom-css  */
+/* Dashboard  */
+.admin-page-anchor {
+  color:white;
+  margin-left: 40px;
+  position: relative;
+  /* top:20px; */
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  list-style: none;
+}
+.admin-page-anchor:hover{
+  color:white;
+  text-decoration: none;
+}
+
 /*!
  * Start Bootstrap - SB Admin 2 v4.1.3 (https://startbootstrap.com/theme/sb-admin-2)
  * Copyright 2013-2021 Start Bootstrap
@@ -10,7 +30,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+ :root {
   --blue: #4e73df;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -53,10 +73,10 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-/* 
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
-} */
+}
 
 body {
   margin: 0;
@@ -89,7 +109,7 @@ p {
   margin-bottom: 1rem;
 }
 
-/* abbr[title],
+abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
@@ -98,13 +118,13 @@ abbr[data-original-title] {
   border-bottom: 0;
   -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
-} */
+}
 
-/* address {
+address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
-} */
+}
 
 ol,
 ul,
@@ -113,23 +133,23 @@ dl {
   margin-bottom: 1rem;
 }
 
-/* ol ol,
+ol ol,
 ul ul,
 ol ul,
 ul ol {
   margin-bottom: 0;
-} */
+}
 
-/* dt {
+dt {
   font-weight: 700;
 }
 
 dd {
   margin-bottom: .5rem;
   margin-left: 0;
-} */
+}
 
-/* blockquote {
+blockquote {
   margin: 0 0 1rem;
 }
 
@@ -167,9 +187,9 @@ a {
 a:hover {
   color: #224abe;
   text-decoration: underline;
-} */
+}
 
-/* a:not([href]):not([class]) {
+a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
 }
@@ -201,9 +221,9 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
-} */
+}
 
-/* svg {
+svg {
   overflow: hidden;
   vertical-align: middle;
 }
@@ -247,9 +267,9 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-} */
+}
 
-/* button,
+button,
 input {
   overflow: visible;
 }
@@ -326,9 +346,9 @@ progress {
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
-} */
+}
 
-/* [type="search"] {
+[type="search"] {
   outline-offset: -2px;
   -webkit-appearance: none;
 }
@@ -336,7 +356,7 @@ progress {
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
- */
+
 ::-webkit-file-upload-button {
   font: inherit;
   -webkit-appearance: button;
@@ -1836,7 +1856,6 @@ pre code {
   color: #6e707e;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #d1d3e2;
   border-radius: 0.35rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -3552,8 +3571,8 @@ input[type="button"].btn-block {
   display: block;
   min-height: 1.5rem;
   padding-left: 1.5rem;
-  /* -webkit-print-color-adjust: exact; */
-  /* color-adjust: exact; */
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
 }
 
 .custom-control-inline {
@@ -4108,6 +4127,7 @@ input[type="button"].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color:rgba(0, 0, 0, 0.9);
 }
 
 .navbar .container,
@@ -4317,7 +4337,7 @@ input[type="button"].btn-block {
 @media (min-width: 1200px) {
   .navbar-expand-xl {
     flex-flow: row nowrap;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
   }
   .navbar-expand-xl .navbar-nav {
     flex-direction: row;
@@ -4347,7 +4367,7 @@ input[type="button"].btn-block {
 
 .navbar-expand {
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
 }
 
 .navbar-expand > .container,
@@ -9797,7 +9817,7 @@ a:focus {
 }
 
 #wrapper #content-wrapper {
-  background-color: #f8f9fc;
+  background-color: #ffecd9;
   width: 100%;
   overflow-x: hidden;
 }
@@ -10134,7 +10154,7 @@ a:focus {
 .topbar .nav-item.dropdown .dropdown-toggle::after {
   width: 1rem;
   text-align: center;
-  float: right;
+  /* float: right; */
   vertical-align: 0;
   border: 0;
   font-weight: 900;
@@ -10156,7 +10176,7 @@ a:focus {
 .topbar .nav-item .nav-link .badge-counter {
   position: absolute;
   transform: scale(0.7);
-  transform-origin: top right;
+  /* transform-origin: top right; */
   right: .25rem;
   margin-top: -.25rem;
 }
@@ -10451,13 +10471,14 @@ a:focus {
 .sidebar .sidebar-brand {
   height: 4.375rem;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 900;
   padding: 1.5rem 1rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   z-index: 1;
+  color :black;
 }
 
 .sidebar .sidebar-brand .sidebar-brand-icon i {
@@ -11269,6 +11290,7 @@ form.user .btn-user {
 footer.sticky-footer {
   padding: 2rem 0;
   flex-shrink: 0;
+  display: flex;
 }
 
 footer.sticky-footer .copyright {
@@ -11281,24 +11303,83 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 
-/* my-custom-css  */
-.admin-page-anchor {
-  color:white;
-  margin-left: 40px;
+/* Admin-sidebar-css  */
+
+.admin-page-anchor{
+  color:black;
+}
+.sidebar-page-li{
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
   position: relative;
-  /* top:20px; */
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  list-style: none;
+  top: 20px;
 }
-.admin-page-anchor:hover{
-  color:white;
-  text-decoration: none;
+.side-bar-links{
+  color:black;
+}
+.side-bar-links:hover{
+  color:black;
+}
+.side-bar-links i{
+  letter-spacing: 4px;
 }
 
 
-/* Product-form  */
+/* Admin-navar-css  */
+nav{
+  position: relative;
+}
+nav .btn-group{
+    background-color: black;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0;
+    width:20px;
+    height:20px;
+    border:2px solid black;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
+    padding:15px;
+    position: absolute;
+    right:20px;
+
+}
+nav .btn-group .btn{
+  color: black;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border:0;
+}
+nav .btn-group i{
+    color:black;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+/* Admin-side-bar-Responsive  */
+
+@media(max-width:768px){
+    
+  .sidebar-page-li{
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .sidebar-page-li i{
+    display: none;
+  }
+}
+
+/* Admin-Product-page */
 
 .admin-product-form-section{
     width: 100%;
@@ -11333,16 +11414,41 @@ body.sidebar-toggled footer.sticky-footer {
     display: flex;
     flex-direction: column;
     padding-bottom: 8px;
+    padding-top: 8px;
 }
 .admin-product-form-container form input{
-    text-align: center;
+    /* text-align: center; */
     width: 500px;
     height: 30px;
-}
-.file-input{
-  position: relative;
-  right:135px;
+    padding-left:8px ;
 }
 .admin-product-input-8 {
   margin-top: 10px;
+}
+.error-message{
+  color:red;
+  font-size: 12px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+/* product-page-Responsive  */
+
+@media (max-width:850px){
+
+  .admin-product-form-container form input{
+      width: 250px;
+  }
+
+}
+
+@media (max-width:470px){
+
+  .admin-product-form-container form input{
+      width: 200px;
+  }
+  .admin-product-form-container form{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }

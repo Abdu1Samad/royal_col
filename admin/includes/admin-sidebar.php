@@ -2,48 +2,37 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar accordion" id="accordionSidebar"style="  background-color: rgba(255, 196, 133, 0.9);">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">ROYAL COLLECTION </div>
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-0" style="border:1px solid black;">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="admin.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+            <li class="sidebar-page-li active">
+                <a class="side-bar-links" href="admin.php">
+                     <i class="fa-solid fa-box"></i>
+                    <span style="color:black;">Products</span></a>
             </li>
 
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider"> -->
-
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Interface
-            </div> -->
-
-            <li class="admin-page-li">
-                <a href="admin-product.php" class="admin-page-anchor">Products</a>
+            <li class="sidebar-page-li">
+            <a href="admin-product.php" class="side-bar-links">
+                <i class="fa-solid fa-shop"></i>
+                <span>Show Products</span></a>
             </li>
-
             
-            <li class="admin-page-li">
-                <a href="insertdata.php" class="admin-page-anchor">orders</a>
+            <li class="sidebar-page-li">
+            <a href="insertdata.php" class="side-bar-links">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>orders</span></a>
             </li>
-
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <!-- <div class="text-center d-none d-md-inline"> -->
-                <!-- <button class="rounded-circle border-0" id="sidebarToggle"></button> -->
-            <!-- </div> -->
 
 
         </ul>

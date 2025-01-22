@@ -42,7 +42,7 @@
   <!-- carousel  -->
   <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-container" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item ">
         <img src="images/carousel-1.png" class="d-block w-100" alt="...">
         <div class="carousel-1-content">
           <p class="carousel-1-para-1">DRESS TO <span>IMPRESS</span></p>
@@ -53,21 +53,13 @@
           </div>
         </div>
       </div>
-      <!-- <div class="carousel-item">
+          <div class="carousel-item active">
             <img src="https://builder.dynamicxx.com/templates/b591759d-2f78-4463-a735-388e254ec9c1/images//bg_hero.png" class="d-block w-100" alt="...">
           </div>
-          <div class="carousel-item">
+          <!--<div class="carousel-item">
             <img src="https://builder.dynamicxx.com/templates/b591759d-2f78-4463-a735-388e254ec9c1/images//bg_hero.png" class="d-block w-100" alt="...">
           </div>
         </div> -->
-      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button> -->
     </div> <!--Carosuel-End-->
 </div>
 
@@ -77,7 +69,7 @@
      <h2>NEW ARRIVALS</h2> 
     </div>
       <section class="new-arival-section">
-        <divcontainer class="new-arrival-container">
+        <div class="new-arrival-container">
          <!-- php  -->
          <?php
           while($row = mysqli_fetch_Assoc($new_arrival_query)){
@@ -85,7 +77,7 @@
           <div class="products-card">  
           <div class="card-content">
             <div class="card-img">
-              <img src="<?php echo $row['product_img'];?>" alt="">
+              <img src="admin/uploads/<?php echo $row['product_img'];?>" alt="">
             </div>
           <div class="card-title">
             <p><?php echo $row['product_name'];?></p>
@@ -114,7 +106,7 @@
         <?php
            }
          ?>
-        </divcontainer>
+        </div>
         </section>
 
 
@@ -132,7 +124,7 @@
               <div class="category-products-content-1">
                 <p class="categories-para-1">Style Meets Comfort</p>
                 <p class="categories-para-2">Men's Wear</p>
-                <a href="" class="categories-btn-1">Shop now</a>
+                <a href="products.php" class="categories-btn-1">Shop now</a>
               </div>
             </div>
             <div class="category-product-grid-items" id="category-products-box-2">
@@ -140,7 +132,7 @@
               <div class="category-products-content-2">
                 <p class="categories-para-1">Walk With Confidence</p>
                 <p class="categories-para-2">Shoes</p>
-                <a href=""class="categories-btn-2">Shop now</a>
+                <a href="products.php"class="categories-btn-2">Shop now</a>
               </div>
             </div>
             <div class="category-product-grid-items" id="category-products-box-3">
@@ -148,7 +140,7 @@
               <div class="category-products-content-3">
                 <p class="categories-para-1">Elevate Every Moment</p>
                 <p class="categories-para-2">Watches</p>
-                <a href="" class="categories-btn-3" >Shop now</a>
+                <a href="products.php" class="categories-btn-3" >Shop now</a>
               </div>
             </div>
             <div class="category-product-grid-items" id="category-products-box-4">
@@ -156,7 +148,7 @@
               <div class="category-products-content-4">
                 <p class="categories-para-1">Radiate Natural Beauty</p>
                 <p class="categories-para-2">Beauty</p>
-                <a href="" class="categories-btn-4">Shop now</a>
+                <a href="products.php" class="categories-btn-4">Shop now</a>
               </div>
             </div>
             <div class="category-product-grid-items" id="category-products-box-5">
@@ -164,7 +156,7 @@
               <div class="category-products-content-5">
                 <p class="categories-para-1">Bags For Adventure</p>
                 <p class="categories-para-2">Bags</p>
-                <a href="" class="categories-btn-5">Shop now</a>
+                <a href="products.php" class="categories-btn-5">Shop now</a>
               </div>
             </div>
             <div class="category-product-grid-items" id="category-products-box-6">
@@ -172,7 +164,7 @@
               <div class="category-products-content-6">
                 <p class="categories-para-1">Inspired By You</p>
                 <p class="categories-para-2">Women's Wear</p>
-                <a href="" class="categories-btn-6">Shop now</a>
+                <a href="products.php" class="categories-btn-6">Shop now</a>
               </div>
             </div>
            </div>
