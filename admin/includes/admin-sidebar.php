@@ -17,13 +17,13 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="sidebar-page-li active">
-                <a class="side-bar-links" href="admin.php">
+                <a class="side-bar-links" href="admin-product.php">
                      <i class="fa-solid fa-box"></i>
                     <span style="color:black;">Products</span></a>
             </li>
 
             <li class="sidebar-page-li">
-            <a href="admin-product.php" class="side-bar-links">
+            <a href="admin-product-show.php" class="side-bar-links">
                 <i class="fa-solid fa-shop"></i>
                 <span>Show Products</span></a>
             </li>

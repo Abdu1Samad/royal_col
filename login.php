@@ -65,8 +65,8 @@
           $_SESSION['login_message_type'] = "error";
         }
       }else{
-        $_SESSION['login_message'] = "No user found with that email please signup !";
-        $_SESSION['login_message_type'] = "error";
+          $_SESSION['login_message'] = "No user found with that email please signup !";
+          $_SESSION['login_message_type'] = "error";
       }
 
 

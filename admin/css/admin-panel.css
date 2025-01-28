@@ -11422,6 +11422,11 @@ nav .btn-group i{
     height: 30px;
     padding-left:8px ;
 }
+textarea{
+  width:500px;
+  height:100px;
+  padding-left: 8px;
+}
 .admin-product-input-8 {
   margin-top: 10px;
 }
@@ -11451,4 +11456,45 @@ nav .btn-group i{
     margin-left: 10px;
     margin-right: 10px;
   }
+}
+
+
+/* Show-product-page-css  */
+
+.show-product-table-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 50px;
+}
+.operator-column{
+  padding:10px 50px !important;
+}
+.btn{
+  background-color:rgba(255, 196, 133, 0.9);
+  border: none;
+  color: black;
+}
+.table-responsive{
+  border: 2px solid black;
+  color:black;
+  overflow: auto;
+}
+.table-responsive thead{
+  border:2px solid black;
+  position: relative;
+  left:5px;
+}
+.table-responsive tr{
+  border: 2px solid black;
+}
+.table-responsive td{
+  border: 2px solid black;
+  padding: 0px 10px;
+  
+}
+.table-responsive img{
+  width: 100px;
+  height: 100px;
+  padding:10px 0px;
 }

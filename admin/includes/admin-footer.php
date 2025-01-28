@@ -2,7 +2,7 @@
             <footer class="sticky-footer w-100" style="background-color:rgba(255, 196, 133, 0.9); color:black;">
                 <div class="container my-auto w-100">
                     <div class="copyright text-center my-auto w-100">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>&copy; Designed and developed by ABDUL SAMAD.</span>
                     </div>
                 </div>
             </footer>

@@ -42,7 +42,7 @@
   <!-- carousel  -->
   <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-container" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item ">
+      <div class="carousel-item active">
         <img src="images/carousel-1.png" class="d-block w-100" alt="...">
         <div class="carousel-1-content">
           <p class="carousel-1-para-1">DRESS TO <span>IMPRESS</span></p>
@@ -53,8 +53,19 @@
           </div>
         </div>
       </div>
-          <div class="carousel-item active">
-            <img src="https://builder.dynamicxx.com/templates/b591759d-2f78-4463-a735-388e254ec9c1/images//bg_hero.png" class="d-block w-100" alt="...">
+          <div class="carousel-item ">
+            <img src="https://media.istockphoto.com/id/2183722167/photo/male-fashion-model-in-a-white-t-shirt-and-jeans-smile-with-teeth-joy-on-a-white-isolated.jpg?s=612x612&w=0&k=20&c=z1s-u-uF1jWwhJHrc4qqZOmU0kUaCFDPWpnQZ9B5WrM=" class="d-block w-100" alt="...">
+            <div class="carousel-2-content">
+              <div class="carousel-2-para-1">
+                <p>Season Deals</p>
+              </div>
+              <div class="carousel-2-para-2">
+                <p>GET CHANCE <span>50%</span> OFF</p>
+              </div>
+              <div class="carousel-btn">
+                <a href="">SHOP NOW <i class="fa-solid fa-angle-right"></i></a>
+              </div>
+            </div>
           </div>
           <!--<div class="carousel-item">
             <img src="https://builder.dynamicxx.com/templates/b591759d-2f78-4463-a735-388e254ec9c1/images//bg_hero.png" class="d-block w-100" alt="...">
@@ -74,10 +85,13 @@
          <?php
           while($row = mysqli_fetch_Assoc($new_arrival_query)){
          ?>
+
           <div class="products-card">  
+          <a class="product-id-fetching-anchor" href="product-details.php?product_id=<?php echo $row['product_id']?>">
           <div class="card-content">
             <div class="card-img">
-              <img src="admin/uploads/<?php echo $row['product_img'];?>" alt="">
+            <input type="hidden" class="img-2" value="<?php echo $row['product-img-2'];?>">
+              <img class="img-1" src="admin/<?php echo $row['product_img'];?>" alt="">
             </div>
           <div class="card-title">
             <p><?php echo $row['product_name'];?></p>
@@ -99,9 +113,11 @@
             ?>
           </div>
           <div class="card-desription">
-            <p><?php echo $row['product-desc']?>;</p>
+            <p><?php echo substr($row['product-desc'], 0, 80)?>...</p>
           </div>
+
         </div>
+        </a>
         </div>
         <?php
            }
@@ -179,6 +195,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
           crossorigin="anonymous"></script> 
+
+          <!-- Vanilla JS -->
+           <script src="script.js"></script>
 
 </body>
 

@@ -53,12 +53,12 @@
             $error = true;
         }
 
-        $allowedtypes = ['image/jpeg','image/png','image/gif'];
+        $allowedtypes = ['image/jpeg','image/png','image/gif', 'image/avif', 'image/webp'];
 
         foreach(['img1','img2','img3'] as $imgfield){
             if(isset($_FILES[$imgfield]) && $_FILES[$imgfield]['error'] == 0){
                 if(!in_array($_FILES[$imgfield]['type'], $allowedtypes)){
-                    $_SESSION[$imgfield.'-error'] = "img field must be in jpeg,png,gif";
+                    $_SESSION[$imgfield.'-error'] = "img field must be in jpeg,png,gif,avif,webp.";
                     $error = true;
                 }else{
                     $target_dir = "uploads/";
@@ -101,6 +101,16 @@
 
     <section class="admin-product-form-section">
         <div class="admin-product-form-container">
+            <!-- php  -->
+            <?php
+                if(isset($_SESSION['sucess-message'])){        
+                    echo '<div class="alert  alert-success alert-dismissible fade show" role="alert">
+                    <strong>' .$_SESSION["sucess-message"]. '</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>';
+                    unset($_SESSION['sucess-message']);
+                }
+            ?>
             <div class="admin-product-from-heading">
                 <h3>Product Form</h3>
             </div>
@@ -140,7 +150,7 @@
                 </div>
                 <div class="admin-product-input-7">
                     <label for="">Description</label>
-                    <input type="text"  id="" name="desc">
+                    <textarea type="text"  id="" name="desc"></textarea>
                     <!-- php  -->
                     <?php
                     if(isset($_SESSION['desc-error'])){

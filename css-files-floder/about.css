@@ -78,8 +78,8 @@
 }
 .about-right-btn a{
     text-decoration: none;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: rgba(255, 196, 133, 0.9);
     padding: 20px 50px;
     border-radius: 8px;
     font-family: "Roboto",serif;

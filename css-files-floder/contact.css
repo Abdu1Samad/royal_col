@@ -72,6 +72,7 @@
 }
 .contact-box-1 i{
     font-size: 40px;
+    color: rgba(255, 196, 133, 0.9);
 }
 .contact-box-1 label{
     font-size: 20px;
@@ -82,6 +83,7 @@
 }
 .contact-box-2 i{
     font-size: 40px;
+    color: rgba(255, 196, 133, 0.9);
 }
 .contact-box-2 label{
     font-size: 20px;
@@ -92,6 +94,7 @@
 }
 .contact-box-3 i{
     font-size: 40px;
+    color: rgba(255, 196, 133, 0.9);
 }
 .contact-box-3 label{
     font-size: 20px;
@@ -185,10 +188,11 @@
 }
 .contact-form-submit-btn{
     height: 40px !important;
-    background-color: black !important;
-    border:1px solid black !important;
-    color: white;
+    background-color: rgba(255, 196, 133, 0.9) !important;
+    /* border:1px solid black !important; */
+    color: black;
     transition: all ease-in-out 0.3s;
+    border: 1px solid rgba(255, 196, 133, 0.9);
 }
 .contact-form-submit-btn:hover{
     background-color: whitesmoke !important;

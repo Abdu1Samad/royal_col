@@ -62,7 +62,7 @@ body{
     left: 0;
     width: 0%;
     height: 2px;
-    background-color: #00cbdd; /* Line ka color */
+    background-color: black; /* Line ka color */
     transition: width 0.5s ease-in-out;
     
 }
@@ -140,7 +140,7 @@ body{
     }
     .navbar{
         height: auto;
-        
+        /* padding: 0; */
     }
     .navbar-brand img{
         margin:0;
@@ -151,7 +151,7 @@ body{
 
 @media (max-width:630px){
     .navbar{
-        padding: 5px 20px;
+        padding: 0px 20px;
     }
 }
 
@@ -159,7 +159,6 @@ body{
     .navbar-nav{
         font-size: 16px;
         line-height: 10px;
-        
     }
     .navbar-icons{
         font-size: 16px;
@@ -178,6 +177,7 @@ body{
     .navbar-toggler{
         color: black !important ;
         width: 50px;
+        height: 40px;
     }
 }
 
@@ -206,7 +206,8 @@ body{
     font-size: 50px;
 }
 .carousel-1-para-1 span{
-    color:#00cbdd;
+    /* color:#00cbdd; */
+    color: rgba(255, 196, 133, 0.9);
     font-weight: 900;
 }
 .carousel-1-para-2{
@@ -227,10 +228,10 @@ body{
 }
 .carousel-1-btn{
     text-decoration: none;
-    color: white;
+    color: black;
     /* border: 2px solid black; */
     padding: 15px 30px;
-    background-color: black;
+    background-color: rgba(255, 196, 133, 0.9);
     border-radius: 8px;
     margin-top: 10%;
     font-size: 18px;
@@ -340,6 +341,112 @@ body{
 
 }
 
+/* Carousel-2-Css  */
+
+.carousel-2-content{
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 34%;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+}
+.carousel-2-para-1{
+    font-size: 30px;
+    line-height: 0px;
+    color:  rgba(255, 196, 133, 0.9);
+    font-weight: 600;
+}
+.carousel-2-para-2{
+    font-size: 70px;
+    width: 500px;
+    line-height: 80px;
+    font-weight: 600;
+}
+.carousel-2-para-2 span{
+    color:  rgba(255, 196, 133, 0.9);
+    font-weight: 700;
+}
+.carousel-btn{
+    margin-top: 20px;
+}
+.carousel-btn a{
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 16px 28px;
+    background-color: rgba(255, 196, 133, 0.9);
+    border-radius: 8px;
+    transition: all ease-in-out 0.3s;
+}
+.carousel-btn a:hover{
+    background-color: transparent;
+    border:2px solid black;
+}
+
+/* Carousel-2-Responsive  */
+
+@media(max-width:992px){
+    
+    .carousel-2-para-1{
+       font-size: 24px;
+       list-style: 0;
+    }
+    .carousel-2-para-2{
+        font-size: 50px;
+        width: 400px;
+    }
+
+}
+@media(max-width:778px){
+    
+    .carousel-2-content{
+        top: 30%;
+        right: -50px;
+    }
+    .carousel-2-para-1{
+        font-size: 24px;
+     }
+     .carousel-2-para-2{
+         font-size: 50px;
+         line-height: 60px;
+     }
+}
+@media(max-width:600px){
+    
+    .carousel-2-content{
+        top: 34%;
+        right: 10px;
+    }
+    .carousel-2-para-1{
+        font-size: 24px;
+     }
+     .carousel-2-para-2{
+         font-size: 30px;
+         width: 200px;
+         line-height: 40px;
+     }     
+    .carousel-btn{
+        margin-top: 10px;
+    }
+    .carousel-btn a{
+        padding: 12px 10px;
+    }
+
+}
+@media(max-width:550px){
+    
+    .carousel-2-content{
+        top: 40%;
+        right: 10px;
+    }
+    .carousel-btn{
+        margin-top: 0px;
+    }
+    
+}
+
+
 /* New-Arrival-products  */
 
 .new-arival-section{
@@ -380,6 +487,7 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* background-color: white; */
 }
 .card-img img{
     width:100%;
@@ -388,6 +496,7 @@ body{
     object-position:top;
     border-top-left-radius:16px;
     border-top-right-radius:16px;
+    /* mix-blend-mode: darken; */
 }
 .card-title{
     padding-left: 20px;
@@ -422,6 +531,13 @@ body{
     padding-right: 8px;
     line-height: 24px;
     font-size: 16px;
+}
+.product-id-fetching-anchor{
+    color:black;
+    text-decoration: none;
+}
+.product-id-fetching-anchor:hover{
+    color:black;
 }
 
 /* New-arival-card-Responsive  */
@@ -543,8 +659,9 @@ body{
     opacity: 0;
 }
 .categories-btn-1:hover{
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: rgba(255, 196, 133, 0.9);
+    border: none;
 }
 .category-products-content-1:hover .categories-btn-1{
     opacity: 1;
