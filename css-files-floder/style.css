@@ -81,7 +81,9 @@ body{
     color: black;
     transition: all ease-in-out 0.3s;
 }
-
+.navbar-icons a{
+    color: black;
+}
 
 .navbar-icons .auth-btn{
     /* color: white; */

@@ -60,6 +60,14 @@
         if($password == $user['signup_password']){
           $_SESSION['login_message'] = "You have succesfully login !";
           $_SESSION['login_message_type'] = "success";
+
+          if($user['role'] == 1){
+            $_SESSION['role'] = true;
+          }else{
+            $_SESSION['role'] = true;
+          }
+
+
         }else{
           $_SESSION['login_message'] = "Incorrect password !";
           $_SESSION['login_message_type'] = "error";

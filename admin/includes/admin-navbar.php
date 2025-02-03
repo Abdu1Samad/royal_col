@@ -21,7 +21,20 @@
                 <i class="fa-solid fa-user-large"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-start ">
-                    <li><button class="dropdown-item" type="button">Logout</button></li>
+                    <!-- php  -->
+                    <?php
+                        if(isset($_POST['Logout'])){    
+                            session_unset();
+                            session_destroy();
+                            // header("Location:login.php");
+                            // exit();
+                        }
+                    ?>
+                    <li>
+                    <form action="../index.php" method="POST">
+                    <button class="dropdown-item" type="submit" name="Logout">Logout</button>
+                    </form>    
+                    </li>
                 </ul>
                 </div>
                     <!-- Topbar Navbar -->

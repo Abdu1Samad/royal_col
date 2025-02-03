@@ -33,25 +33,29 @@
               <i class="fa-solid fa-user-large"></i>
             </button>
           <ul class="dropdown-menu dropdown-menu-end">
+            <!-- php  -->
             <?php if(isset($_SESSION['user_authenticated'])) : ?>
-
             <li>
               <form method="POST">
                 <button class="dropdown-item">Logout</button>
               </form>
-            </li>
-
-            
-            <?php else : ?>
-              
+            </li>      
+            <?php else : ?>    
             <li><a class="dropdown-item" href="login.php">Login</a></li>
             <li><a class="dropdown-item" href="signup.php">Signup</a></li>
-
             <?php endif; ?>
-            <li><a class="dropdown-item" href="admin/admin-product.php">Admin panel</a></li>
+            <!-- Admin-panel-link (only show for admin) -->
+             <!-- php  -->
+             <?php
+              if(isset($_SESSION['role']) && $_SESSION['role'] == true){
+             ?>
+              <li><a class="dropdown-item" href="admin/admin-product.php">Admin panel</a></li>
+            <?php
+            }
+            ?>
           </ul>
           </div>
-          <i class="fa-solid fa-cart-shopping nav-cart-icon"></i>
+          <a href="add-to-cart.php"><i class="fa-solid fa-cart-shopping nav-cart-icon"></i></a>
         </div>
       </div>
     </div>

@@ -1,3 +1,8 @@
+<!-- php  -->
+<?php
+  session_start();
+ ?>
+ 
 <?php
     include 'connection.php';
     if(isset($_GET['product_id']) && is_numeric($_GET['product_id'])){
@@ -11,11 +16,7 @@
     if($result){
         $product_data = mysqli_fetch_assoc($result);
 
-    }
-
-
-    
-
+    }  
 ?>
 
 
@@ -95,10 +96,11 @@
                 <p class="product-details-para3">PRODUCT DESCRIPTION: <br><?php echo $product_data['product-desc'];?></p>
                 <hr class="product-detail-page-line">
                 <div class="qty-add-cart">
-                    <form method="POST">
+                    <form method="GET" action="add-to-cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $product_data['product_id'];?>">
                         <label for="">QUANTITY:</label>
                         <input type="number" class="qty" name="qty" value="1" min="1">
-                        <input type="button" value="ADD TO CART" name="add-to-cart" class ="add-to-cart">
+                        <input type="submit" value="ADD TO CART" name="" class ="add-to-cart" placeholder="ADD TO CART">
                     </form>
                 </div>
             </div>

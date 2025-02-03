@@ -1,5 +1,7 @@
 
 <?php
+    ob_start();
+
     include 'includes/header.php';
     include 'includes/admin-sidebar.php';
     include 'includes/admin-navbar.php';
@@ -41,7 +43,7 @@
                     <!-- php -->
                         <?php
                         if(!empty($fetch_data_for_update['product_img'])):?>
-                            <img src="uploads/<?php echo $fetch_data_for_update['product_img']; ?>"alt="" style="width:100px; height:100px; object-fit:contain;">
+                            <img src="<?php echo $fetch_data_for_update['product_img']; ?>"alt="" style="width:100px; height:100px; object-fit:contain;">
                         <?php endif; ?>
                     <input type="file"  id="" class="file-input" name="img1">
                 </div>
@@ -50,7 +52,7 @@
                     <!-- php -->
                         <?php
                         if(!empty($fetch_data_for_update['product-img-2'])):?>
-                            <img src="/<?php echo $fetch_data_for_update['product-img-2']; ?>"alt="" style="width:100px; height:100px; object-fit:contain;">
+                            <img src="<?php echo $fetch_data_for_update['product-img-2']; ?>"alt="" style="width:100px; height:100px; object-fit:contain;">
                         <?php endif; ?>
                     <input type="file"  id="" class="file-input"  name="img2">
                 </div>
@@ -59,7 +61,7 @@
                     <!-- php -->
                         <?php
                         if(!empty($fetch_data_for_update['product-img-3'])):?>
-                            <img src="uploads/<?php echo $fetch_data_for_update['product-img-3']; ?>"alt="" style="width:100px; height:100px; object-fit:contain;">
+                            <img src="<?php echo $fetch_data_for_update['product-img-3']; ?>"alt="" style="width:100px; height:100px; object-fit:contain;">
                         <?php endif; ?>
                     <input type="file" id="" class="file-input"  name="img3">
                 </div>
@@ -91,25 +93,32 @@
             $img1 = $_FILES['img1']['name'];
             $img1path = $upload_dir .basename($img1);
             move_uploaded_file($_FILES['img1']['tmp_name'], $img1path);
-            $updatequery .= ", `product_img` = '$img1'";
+            $updatequery .= ", `product_img` = '$img1path'";
         }
         if(!empty($_FILES['img2']['name'])){
             $img2 = $_FILES['img2']['name'];
             $img2path = $upload_dir .basename($img2);
             move_uploaded_file($_FILES['img2']['tmp_name'], $img2path);
-            $updatequery .= ", `product-img-2` = '$img2'";
+            $updatequery .= ", `product-img-2` = '$img2path'";
         }if(!empty($_FILES['img3']['name'])){
             $img3 = $_FILES['img3']['name'];
             $img3path = $upload_dir.basename($img3);
             move_uploaded_file($_FILES['img3']['tmp_name'], $img3path);
-            $updatequery .= ", `product-img-3` = '$img3'";
+            $updatequery .= ", `product-img-3` = '$img3path'";
         }
 
         $updatequery .= " WHERE product_id='$product_id'";
 
         if(mysqli_query($con,$updatequery)){
+            
+            // <script>
+            //     alert("product updated sucessfully");
+            // </script> 
+            
+            
             header("location:admin-product-show.php");
             exit();
+
         }else{
             ?>
             <script>
