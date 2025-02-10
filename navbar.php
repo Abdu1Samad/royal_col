@@ -1,3 +1,6 @@
+<?php 
+ob_start(); 
+?>
 
 <!-- Navbar  -->
 <nav class="navbar navbar-expand-md bg-light">
@@ -34,9 +37,9 @@
             </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <!-- php  -->
-            <?php if(isset($_SESSION['user_authenticated'])) : ?>
+            <?php if(isset($_SESSION['signup_id'])) : ?>
             <li>
-              <form method="POST">
+              <form action="logout.php" method="POST">
                 <button class="dropdown-item">Logout</button>
               </form>
             </li>      
@@ -47,7 +50,7 @@
             <!-- Admin-panel-link (only show for admin) -->
              <!-- php  -->
              <?php
-              if(isset($_SESSION['role']) && $_SESSION['role'] == true){
+              if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
              ?>
               <li><a class="dropdown-item" href="admin/admin-product.php">Admin panel</a></li>
             <?php
@@ -61,3 +64,4 @@
     </div>
   </nav> <!--Navbar-End-->
 
+  <?php ob_end_flush(); ?>

@@ -4,6 +4,16 @@
   session_start();
   include 'connection.php';
 
+  if(!isset($_SESSION['signup_id'])){
+     var_dump($_SESSION['redirect_cart_page'] = $_SERVER['REQUSET_URI']); 
+     header("Location: login.php");
+     exit();
+  }
+
+  // $login_query = "INSERT INTO Cart (`user_id`,`product_id`,`qunatity`) VALUES (".$_SESSION['signup_id'].",'$product_id','$qty')";
+  // $exicute_login_query = mysqli_query($con,$login_query);
+
+
   if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['product_id']) ) {
     $product_id_to_delete = $_GET['product_id'];
 
@@ -108,25 +118,24 @@ if (!isset($_SESSION['cart'])) {
 
   <!-- php  -->
   <?php
-  // include 'navbar.php';
+  include 'navbar.php';
   ?> 
 
 </head>
 <body>
      
-    <!-- Cart-label  -->
-    <section class="cartlabel">
-        <div class="cart-label-container">
-          <div class="cart-label-img">
-            <div class="cart-label-content">
-              <label for="">Shopping Bag</label>
-            </div>
-          </div>
-        </div>
-      </section>   
+            <!-- Cart-label  -->
+            <section class="cartlabel">
+                <div class="cart-label-container">
+                  <div class="cart-label-img">
+                    <div class="cart-label-content">
+                      <label for="">Shopping Bag</label>
+                    </div>
+                  </div>
+                </div>
+              </section>   
 
-
- 
+              
                 <!-- empty-cart-content  -->
                  <?php if(empty($_SESSION['cart'])) :?>
                 <section class="empty-cart-section">
@@ -148,12 +157,12 @@ if (!isset($_SESSION['cart'])) {
  
               <table class="table">
               <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">NAME</th>
-                  <th scope="col">PRICE</th>
-                  <th scope="col">QUANTITY</th>
-                  <th scope="col">TOTAL</th>
+                <tr class="row">
+                  <th scope="" class=" line col-12 col-sm-12 col-md-12 col-lg-2">DELETE</th>
+                  <th scope="" class="col-12 col-sm-12 col-md-12 col-lg-3">NAME</th>
+                  <th scope="" class="col-12 col-sm-12 col-md-12 col-lg-2">PRICE</th>
+                  <th scope="" class="col-12 col-sm-12 col-md-12 col-lg-2">QUANTITY</th>
+                  <th scope="" class="col-12 col-sm-12 col-md-12 col-lg-3">TOTAL</th>
                 </tr>
               </thead>
               <tbody>
@@ -164,13 +173,16 @@ if (!isset($_SESSION['cart'])) {
                     foreach($_SESSION['cart'] as $item){
                       $qty = isset($item['qty']) ? $item['qty'] : 1;
                       $total_price = $item['product_price'] * $qty;
+                      $formated_total_price = number_format($total_price);
 
-                  echo"<tr>
-                      <td><a href='add-to-cart.php?action=delete&product_id=" . $item['product_id'] . "'><i class='fa-solid fa-x'></i></a></td>
-                      <td>{$item['product_name']}</td>
-                      <td>{$item['product_price']}</td>
-                      <td>{$qty}</td>
-                      <td>PKR $total_price</td>
+                      
+
+                  echo"<tr class='row'>
+                      <td class='icon-table col-12 col-sm-12 col-md-12 col-lg-2'><a href='add-to-cart.php?action=delete&product_id=" . $item['product_id'] . "'><i class='fa-solid fa-x'></i></a></td>
+                      <td class='col-12 col-sm-12 col-md-12 col-lg-3'>{$item['product_name']}</td>
+                      <td class='col-12 col-sm-12 col-md-12 col-lg-2'>{$item['product_price']}</td>
+                      <td class='col-12 col-sm-12 col-md-12 col-lg-2'>{$qty}</td>
+                      <td class='col-12 col-sm-12 col-md-12 col-lg-3'>PKR $formated_total_price</td>
                     </tr>";
                     $total_amount += $total_price;
                 }
@@ -186,10 +198,10 @@ if (!isset($_SESSION['cart'])) {
                 </div>
                 <div class="sub-total-list">
                   <div class="sub-total-list-1">
-                    <p>SUBTOTAL: <span>PKR <?php echo $total_amount ?> </span></p>
+                    <p>SUBTOTAL: <span>PKR <?php echo $formated_total_price ?> </span></p>
                   </div>
                   <div class="checkout-btn">
-                    <a href="checkout.php">PROCEED TO CHECKOUT</a>
+                    <a href="checkout.php?id="">PROCEED TO CHECKOUT</a>
                   </div>
                 </div>
               </div>

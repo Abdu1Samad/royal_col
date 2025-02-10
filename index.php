@@ -58,8 +58,8 @@
           </div>
         </div>
       </div>
-          <div class="carousel-item ">
-            <img src="https://media.istockphoto.com/id/2183722167/photo/male-fashion-model-in-a-white-t-shirt-and-jeans-smile-with-teeth-joy-on-a-white-isolated.jpg?s=612x612&w=0&k=20&c=z1s-u-uF1jWwhJHrc4qqZOmU0kUaCFDPWpnQZ9B5WrM=" class="d-block w-100" alt="...">
+          <!-- <div class="carousel-item ">
+            <img src="https://media.istockphoto.com/id/973481860/photo/handsome-young-man.jpg?s=612x612&w=0&k=20&c=G-ALY6SDn6FSQIeVUQGU-ZG8TXzMk9Dw14_QR-s-Fvw=" class="d-block w-100" alt="...">
             <div class="carousel-2-content">
               <div class="carousel-2-para-1">
                 <p>Season Deals</p>
@@ -71,7 +71,7 @@
                 <a href="">SHOP NOW <i class="fa-solid fa-angle-right"></i></a>
               </div>
             </div>
-          </div>
+          </div> -->
           <!--<div class="carousel-item">
             <img src="https://builder.dynamicxx.com/templates/b591759d-2f78-4463-a735-388e254ec9c1/images//bg_hero.png" class="d-block w-100" alt="...">
           </div>

@@ -5,20 +5,40 @@
    session_start();
    include 'connection.php';
 
+  if(isset($_SESSION['cart'])){
+
+    foreach($_SESSION['cart'] as $item){
+        $product_name = $item['product_name'];
+        $product_price = $item['product_price'];
+        $product_qty = $item['qty'];
+    }
+
+    $total_amount = $product_price*$product_qty;
+
+    $formated_total_amount = number_format($total_amount);
+  }
+
+
+   $haserror = false;
+
+   if ($haserror == false) {
+    unset($_SESSION['errors']);
+   }
+
+
    if(isset($_POST['checkout_btn'])){
 
-    $F_name = $_POST['F_name'];
-    $L_name = $_POST['L_name'];
-    $Company_name = $_POST['Company_name'];
-    $Adress = $_POST['Adress'];
-    $City = $_POST['City'];
-    $Country = $_POST['Country'];
-    $Postcode = $_POST['Postcode'];
-    $Phone_no = $_POST['Phone'];
-    $Email = $_POST['Email'];
+    $F_name = trim($_POST['F_name']);
+    $L_name = trim($_POST['L_name']);
+    $Company_name = trim($_POST['Company_name']);
+    $Adress = trim($_POST['Adress']);
+    $City = trim($_POST['City']);
+    $Country = trim($_POST['Country']);
+    $Postcode = trim($_POST['Postcode']);
+    $Phone_no = trim($_POST['Phone']);
+    $Email = trim($_POST['Email']);
 
-    
-    if(!isset($_SESSION['errors'])){   //isko smjhna he 
+    if(!isset($_SESSION['errors'])){   
 
       $_SESSION['errors'] = [
 
@@ -33,60 +53,77 @@
         'Email'=> ''   
 
       ];
-
     }
+
+
     if(empty($F_name)){
        $_SESSION['errors']['F_name'] = "Please enter first name in this field!"; 
+       $haserror = true;
+    
+    }else if(strlen($F_name) < 3){
+       $_SESSION['errors']['F_name'] = "first name must contain atleast 3 words"; 
+       $haserror = true;
     }
     if(empty($L_name)){
       $_SESSION['errors']['L_name'] = "Please enter Last name in this field!"; 
+      $haserror = true;
     }
     if(empty($Adress)){
       $_SESSION['errors']['Adress'] = "Please enter Adress in this field!"; 
+      $haserror = true;
     }
     if(empty($City)){
       $_SESSION['errors']['City'] = "Please enter city/Town name in this field!"; 
+      $haserror = true;
     }
     if(empty($Country)){
       $_SESSION['errors']['Country'] = "Please select your state/country!"; 
+      $haserror = true;
     }
     if(empty($Postcode)){
       $_SESSION['errors']['Postcode'] = "Please enter your Postal/Zipcode!"; 
+      $haserror = true;
     }
     if(empty($Phone_no)){
       $_SESSION['errors']['Phone'] = "Please enter your phone number!"; 
-    }
-    if($Phone_no < 11){
+      $haserror = true;
+    }else if(strlen($Phone_no) < 11){
       $_SESSION['errors']['Phone'] = "Phone number must be in 11 !";
+      $haserror = true;
     }
     if(empty($Email)){
       $_SESSION['errors']['Email'] = "Email adress canot be empty!"; 
-    }
-    if(!Filter_var($Email,FILTER_VALIDATE_EMAIL)){
-      $_SESSION['error']['Email'] = "Please enter @ in your email!";
+      $haserror = true;
+    }else if(!filter_var($Email,FILTER_VALIDATE_EMAIL)){
+      $_SESSION['errors']['Email'] = "Please enter @ in your email!";
+      $haserror = true;
     }
 
-    if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])){
-        foreach($_SESSION['errors'] as $error){
-            echo "<p style='color:red;'>$error</p>";
-        }
-    }else{
+    if($haserror == false){
       $checkout_insert_data = "INSERT INTO checkout (`Id`,`F_name`,`L_name`,`Company_name`,`Adress`,`City`,`Country`,`Postcode`,`Phone_no`,`Email`,`Date_time`) VALUES (null,'$F_name','$L_name','$Company_name','$Adress','$City','$Country','$Postcode','$Phone_no','$Email',Now())";
 
       $checkout_insert_query = mysqli_query($con,$checkout_insert_data);
 
       if($checkout_insert_query){
-        echo "inserted succesfully";
+        ?>
+        <script>
+          alert("Inserted succesfully")
+        </script>
+        <?php
       }
       else{
-        echo "insert error";
+        ?>
+        <script>
+          alert("Inserted error");
+        </script>
+        <?php
       }
-
     }
-
-   }
+  
    
-
+  }
+   
+   
 
 
 ?>
@@ -130,7 +167,7 @@
 
   <!-- php  -->
   <?php
-  include 'navbar.php';
+  // include 'navbar.php';
   ?> 
 
 </head>
@@ -151,147 +188,165 @@
      <!-- checkout-main-content   -->
     <section class="checkout-content-section">
         <div class="checkout-content-container">
-            <div class="row">
+          <form action="" method="POST">
+            <div class="row main-row">
             <div class="checkout-left-container col-12 col-md-6 col-lg-4">
-              <form action="" method="POST">
                   <div class="checkout-left-container-heading">
                       <h3>BILLING DETAILS</h3>
                   </div>
-                    <div class="checkout-label-1">  
+                    <div class="row billing-form-row">
+                    <div class="checkout-input-1 col-12 col-sm-12 col-md-12 col-lg-6">  
                       <label for="">FIRST NAME <span>*</span></label>                    
-                      <label for="">LAST NAME <span>*</span></label>    
-                    </div>
-                    <div class="checkout-input-1">
-                      <input type="text" name="F_name" id="">
+                      <input type="text" name="F_name" id="" value="<?php echo isset($_POST['F_name']) ? htmlspecialchars($_POST['F_name']) : ''; ?>">
                       <!-- php  -->
                       <?php
                         if(isset($_SESSION['errors']['F_name'])){
                           echo "<p class='errors'>". $_SESSION['errors']['F_name'] ."</p>";
-                          unset($_SESSION['errors']);
                         }
                       ?>
-                      <input type="text" name="L_name" id="">
+                    </div>
+                    <div class="checkout-input-2 col-12 col-sm-12 col-md-12 col-lg-6" >
+                      <label for="">LAST NAME <span>*</span></label>   
+                      <input type="text" name="L_name" id="" value="<?php echo isset($_POST['L_name']) ? htmlspecialchars($_POST['L_name']) : ''; ?>">
                       <!-- php  -->
                       <?php
                         if(isset($_SESSION['errors']['L_name'])){
                           echo "<p class='errors'>". $_SESSION['errors']['L_name'] ."</p>";
-                          unset($_SESSION['errors']);
                         }
                       ?>
                     </div>
-                    <div class="checkout-input-2">
+                    <div class="checkout-input-3 col-12 col-md-12 col-lg-12">
                       <label for="">COMPANY NAME (OPTIONAL) </label>  
-                      <input type="text" name="Company_name" id="">
+                      <input type="text" name="Company_name" id="" value="<?php echo isset($_POST['Company_name']) ? htmlspecialchars($_POST['Company_name']) : ''; ?>">
                       <!-- php  -->
                       <?php
                         if(isset($_SESSION['errors']['Company_name'])){
                           echo "<p class='errors'>". $_SESSION['errors']['Company_name'] ."</p>";
-                          unset($_SESSION['errors']);
                         }
                       ?>
                     </div>
-                    <div class="checkout-input-3">
+                    <div class="checkout-input-4 col-12 col-md-12 col-lg-12">
                        <label for="">STREET ADRESS <span>*</span></label>  
-                      <textarea name="Adress" id=""></textarea>
+                      <textarea name="Adress" id="" placeholder="House number and street name Apartment, suite, unit,etc.(optional)" >
+                      <?php echo isset($_POST['Adress']) ? htmlspecialchars($_POST['Adress']) : ''; ?>
+                      </textarea>
                       <!-- php  -->
                       <?php
                         if(isset($_SESSION['errors']['Adress'])){
                           echo "<p class='errors'>". $_SESSION['errors']['Adress'] ."</p>";
-                          unset($_SESSION['errors']);
                         }
                       ?>
                     </div>
-                    <div class="checkout-label-4">
+                    <div class="checkout-input-5 col-12 col-sm-12 col-md-12 col-lg-6">
                        <label for="">TOWN/CITY <span>*</span></label>  
-                       <label for="">STATE/COUNTRY <span>*</span></label>  
-                      </div>
-                      <div class="checkout-input-4">
-                      <input type="text" name="City" id="">
+                       <input type="text" name="City" id="" value="<?php echo isset($_POST['City']) ? htmlspecialchars($_POST['City']) : ''; ?>">
                        <!-- php  -->
-                        <?php
+                       <?php
                           if(isset($_SESSION['errors']['City'])){
                             echo "<p class='errors'>". $_SESSION['errors']['City'] ."</p>";
-                            unset($_SESSION['errors']);
                           }
                         ?>
+                      </div>
+                      <div class="checkout-input-6 col-12 col-sm-12 col-md-12 col-lg-6">
+                      <label for="">STATE/COUNTRY <span>*</span></label>                
                       <select name="Country" id="">
-                       <!-- php  -->
-                        <?php
+                          <option value="">SELECT STATE</option>
+                          <option value="AZAD KASHMIR">AZAD KASHMIR</option>
+                          <option value="BALOCHISTAN">BALOCHISTAN</option>
+                          <option value="FATA">FATA</option>
+                          <option value="GILGIT BALDISTAN">GILGIT BALDISTAN</option>
+                          <option value="ISLAMABAD">ISLAMABAD</option>
+                          <option value="KHYBAR PAKHTUNKHWA">KHYBAR PAKHTUNKHWA</option>
+                          <option value="SINDH">SINDH</option>
+                          <option value="PUNJAB">PUNJAB</option>
+                      </select>
+                      <!-- php  -->
+                      <?php
                           if(isset($_SESSION['errors']['Country'])){
                             echo "<p class='errors'>". $_SESSION['errors']['Country'] ."</p>";
-                            unset($_SESSION['errors']);
                           }
                         ?>
-                          <option value="">SELECT STATE</option>
-                          <option value="">AZAD KASHMIR</option>
-                          <option value="">BALOCHISTAN</option>
-                          <option value="">FATA</option>
-                          <option value="">GILGIT BALDISTAN</option>
-                          <option value="">ISLAMABAD</option>
-                          <option value="">KHYBAR PAKHTUNKHWA</option>
-                          <option value="">SINDH</option>
-                          <option value="">PUNJAB</option>
-                      </select>
                     </div>
-                    <div class="checkout-label-5">
+                    <div class="checkout-label-7 col-12 col-sm-12 col-md-12 col-lg-6">
                        <label for="">POSTCODE/ZIP <span>*</span></label>  
-                       <label for="">PHONE <span>*</span></label>  
-                      </div>
-                      <div class="checkout-input-5">
-                        <input type="text" name="Postcode" id="">
-                      <!-- php  -->
-                        <?php
+                       <input type="text" name="Postcode" id="" value="<?php echo isset($_POST['Postcode']) ? htmlspecialchars($_POST['Postcode']) : ''; ?>">
+                       <!-- php  -->
+                       <?php
                           if(isset($_SESSION['errors']['Postcode'])){
                             echo "<p class='errors'>". $_SESSION['errors']['Postcode'] ."</p>";
-                            unset($_SESSION['errors']);
                           }
                         ?>
-                        <input type="text" name="Phone" id="">
-                      <!-- php  -->
+                      </div>
+                      <div class="checkout-input-8 col-12 col-sm-12 col-md-12 col-lg-6">
+                        <label for="">PHONE <span>*</span></label>  
+                        <input type="text" name="Phone" id="" value="<?php echo isset($_POST['Phone']) ? htmlspecialchars($_POST['Phone']) : ''; ?>">
+                       <!-- php  -->
                         <?php
                           if(isset($_SESSION['errors']['Phone'])){
                             echo "<p class='errors'>". $_SESSION['errors']['Phone'] ."</p>";
-                            unset($_SESSION['errors']);
                           }
                         ?>
                     </div>
-                    <div class="checkout-input-6">
+                    <div class="checkout-input-9">
                        <label for="">EMAIL ADRESS <span>*</span></label>  
-                       <input type="text" name="Email" id="">
-                      <!-- php  -->
+                       <input type="text" name="Email" id="" value="<?php echo isset($_POST['Email']) ? htmlspecialchars($_POST['Email']) : ''; ?>">
+                       <!-- php  -->
                         <?php
                           if(isset($_SESSION['errors']['Email'])){
                             echo "<p class='errors'>". $_SESSION['errors']['Email'] ."</p>";
-                            unset($_SESSION['errors']);
                           }
                         ?>
                     </div>      
+                    <div class="checkout-btn">
+                       <input type="submit" value="PLACE ORDER" name="checkout_btn">
+                    </div> 
+                </div>
             </div>
             <div class="checkout-right-container col-12 col-md-6 col-lg-4">
                  <div class="checkout-right-content-box">
                     <div class="checkout-right-content-heading">
                         <h3>INVOICE DETAILS</h3>
+                        </div>
                         <div class="checkout-right-ul">
-                            <label for="">PRODUCT SUBTOTAL</label>
-                            <li></li>
-                            <label for="">TOTAL <span></span> PKR</label>
+                            <label for="" class="right-section-dark">PRODUCT <span></span> SUBTOTAL</label>
+                            <!-- <li>  echo .$product_name.'.<span></span>.'. $product_price ;</li> -->
+                            <li>
+                              <span style="float: left;"><?php echo $product_name; ?></span>
+                              <span style="float: right;"><?php echo $formated_total_amount; ?></span>
+                            </li>
+
+                            <label for="">TOTAL <span></span> PKR <?php echo $formated_total_amount;?></label>
                         </div>
-                        <div class="checkout-right-payment">
+                        <div class="checkout-right-payment-img">
                             <label for="">SELECT PAYMENT METHOD<span></span></label>
-                            <ul>
-                                <li><input type="radio" name="" id="">MASTERCARD</li>
-                                <li><input type="radio" name="" id="">JAZZCASH</li>
-                                <li><input type="radio" name="" id="">VISA</li>
-                                <li><input type="radio" name="" id="" checked>CASH ON DELIVARY</li>
-                            </ul>
-                            <div class="checkout-btn">
-                               <input type="submit" value="PLACE ORDER" name="checkout_btn">
+                            <div class="checkout-right-img">
+                            <img src="images/footer-payment-1.png" alt="">
+                            <img src="images/footer-payment-2.png" alt="">
+                            <img src="images/footer-payment-3.png" alt="">
                             </div>
-                            </form>
                         </div>
+                            <div class="checkout-right-payment-label">
+                              <div class="payment-method-1"> 
+                                <input type="checkbox" name="" id="">
+                                <label for="">Mastercard</label>
+                              </div>
+                              <div class="payment-method-1">
+                                <input type="checkbox" name="" id="">
+                                <label for="">JAZZCASH</label>
+                              </div>
+                              <div class="payment-method-1">
+                                <input type="checkbox" name="" id="">   
+                                <label for="">VISA</label>
+                              </div>
+                              <div class="payment-method-1">
+                                <input type="checkbox" name="" id="" checked>
+                                <label for="">CASH ON DELIVARY</label>
+                              </div>
+                            </div>
+                          </form>
                     </div>
-                 </div>   
-            </div>
+                </div>
+                        <!-- </div> -->
             </div> <!-- row-div -->
         </div> <!-- container-div -->
     </section>

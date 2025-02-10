@@ -1,10 +1,14 @@
 <!-- php  -->
+
 <?php
   session_start();
- ?>
- 
-<?php
-    include 'connection.php';
+  include 'connection.php';
+
+//   if(!isset($_SESSION['signup_id'])){
+//      header("location: login.php");   
+//      exit();
+//   }
+
     if(isset($_GET['product_id']) && is_numeric($_GET['product_id'])){
         $product_ID = $_GET['product_id'];
     }else{
@@ -17,6 +21,7 @@
         $product_data = mysqli_fetch_assoc($result);
 
     }  
+
 ?>
 
 

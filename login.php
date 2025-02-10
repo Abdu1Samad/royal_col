@@ -43,9 +43,25 @@
 
   <!-- php  -->
   <?php
+
+    ob_start();
     session_start();
+
     include 'navbar.php';
     include 'connection.php';
+
+    if(isset($_SESSION['redirect_cart_page'])){
+      $redirect_url = $_SESSION['redirect_cart_page'];
+      unset($_SESSION['redirect_cart_page']);
+      header("Location: $redirect_url");
+      exit();
+    }
+    // else{
+    //   header("Location: index.php");
+    //   exit();  
+    // }
+
+
 
     if(isset($_POST['submit'])){
       $email = $_POST['email'];
@@ -58,24 +74,24 @@
         $user = mysqli_fetch_assoc($login_query);
 
         if($password == $user['signup_password']){
+          $_SESSION['signup_id'] = $user['signup_id'];
           $_SESSION['login_message'] = "You have succesfully login !";
           $_SESSION['login_message_type'] = "success";
 
-          if($user['role'] == 1){
-            $_SESSION['role'] = true;
+          if($user['role'] === 'admin'){
+            $_SESSION['role'] = 'admin';
           }else{
-            $_SESSION['role'] = true;
+            $_SESSION['role'] = 'user';
           }
-
-
+         
         }else{
           $_SESSION['login_message'] = "Incorrect password !";
           $_SESSION['login_message_type'] = "error";
         }
-      }else{
+        }else{
           $_SESSION['login_message'] = "No user found with that email please signup !";
           $_SESSION['login_message_type'] = "error";
-      }
+        }
 
 
     }
@@ -157,3 +173,5 @@
 </body>
 
 </html>
+<?php ob_end_flush(); ?>
+
