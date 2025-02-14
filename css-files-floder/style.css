@@ -936,8 +936,27 @@ body{
 
 }
 
+/* Brands-section  */
 
-
+.brands-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.brands-container{
+    margin: 80px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.brands-content{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 20px; */
+}
+.brands-container img{
+    width: 200px;
+}
 
 
 

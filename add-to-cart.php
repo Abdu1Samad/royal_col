@@ -5,35 +5,39 @@
   include 'connection.php';
 
   if(!isset($_SESSION['signup_id'])){
-     var_dump($_SESSION['redirect_cart_page'] = $_SERVER['REQUSET_URI']); 
+     $_SESSION['redirect_cart_page'] = $_SERVER['REQUEST_URI']; 
      header("Location: login.php");
      exit();
   }
 
-  // $login_query = "INSERT INTO Cart (`user_id`,`product_id`,`qunatity`) VALUES (".$_SESSION['signup_id'].",'$product_id','$qty')";
-  // $exicute_login_query = mysqli_query($con,$login_query);
-
 
   if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['product_id']) ) {
+    
     $product_id_to_delete = $_GET['product_id'];
 
-    // Loop through the cart to find the product and remove it
     foreach ($_SESSION['cart'] as $key => $item) {
         if ($item['product_id'] == $product_id_to_delete) {
-            unset($_SESSION['cart'][$key]); // Remove the product from the session
-            $_SESSION['cart'] = array_values($_SESSION['cart']); // Reindex the array after unset
-            break; // Exit the loop after deleting the product
+            unset($_SESSION['cart'][$key]); 
+            $_SESSION['cart'] = array_values($_SESSION['cart']); 
+            break; 
         }
     }
 
-    // Redirect back to the cart page after deletion
+    if(isset($_SESSION['signup_id'])){
+
+      $user_id = $_SESSION['signup_id'];
+      $cart_delete_query = "DELETE FROM cart WHERE user_id = '$user_id' AND product_id = '$product_id_to_delete'";
+      $execute_delete_query = mysqli_query($con,$cart_delete_query);
+
+    }
+
     header('Location: add-to-cart.php');
     exit();
-}
+  }
 
-if (!isset($_SESSION['cart'])) {
-  $_SESSION['cart'] = array(); // Initialize cart if not set
-}
+  if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array(); // Initialize cart if not set
+  }
 
 
   if(isset($_GET['product_id']) && isset($_GET['qty']) && !isset($_GET['added']) ){
@@ -56,7 +60,7 @@ if (!isset($_SESSION['cart'])) {
             $product_exist = true;
             break;
         }
-    }
+      }
 
 
       if(!$product_exist){
@@ -68,7 +72,22 @@ if (!isset($_SESSION['cart'])) {
       ); 
     }
 
-    } 
+      $user_id = $_SESSION['signup_id'];
+
+      $Select_cart_quary = "SELECT * FROM cart WHERE user_id = '$user_id' AND product_id = '$product_id'";
+      $execute_cart_query = mysqli_query($con,$Select_cart_quary);
+
+      if(mysqli_num_rows($execute_cart_query) > 0){
+
+        $cart_update_query = "UPDATE cart SET qunatity = qunatity + $qty WHERE user_id = '$user_id' AND product_id = '$product_id'";
+        $execute_update_query = mysqli_query($con,$cart_update_query);
+      }
+      else{`
+        $cart_insert_query = "INSERT INTO cart (`cart_id`,`user_id`,`product_id`,`qunatity`)VALUES(null,'$user_id','$product_id','$qty')";
+        $execute_insert_query = mysqli_query($con,$cart_insert_query); 
+      }
+
+  } 
     header('Location: add-to-cart.php?added=true');  // Redirect with 'added' flag to avoid duplication
     exit();  // Don't forget to exit after header redirect
   }
@@ -173,7 +192,7 @@ if (!isset($_SESSION['cart'])) {
                     foreach($_SESSION['cart'] as $item){
                       $qty = isset($item['qty']) ? $item['qty'] : 1;
                       $total_price = $item['product_price'] * $qty;
-                      $formated_total_price = number_format($total_price);
+                      
 
                       
 
@@ -182,7 +201,7 @@ if (!isset($_SESSION['cart'])) {
                       <td class='col-12 col-sm-12 col-md-12 col-lg-3'>{$item['product_name']}</td>
                       <td class='col-12 col-sm-12 col-md-12 col-lg-2'>{$item['product_price']}</td>
                       <td class='col-12 col-sm-12 col-md-12 col-lg-2'>{$qty}</td>
-                      <td class='col-12 col-sm-12 col-md-12 col-lg-3'>PKR $formated_total_price</td>
+                      <td class='col-12 col-sm-12 col-md-12 col-lg-3'>PKR " . number_format($total_price) . "</td>
                     </tr>";
                     $total_amount += $total_price;
                 }
@@ -198,10 +217,10 @@ if (!isset($_SESSION['cart'])) {
                 </div>
                 <div class="sub-total-list">
                   <div class="sub-total-list-1">
-                    <p>SUBTOTAL: <span>PKR <?php echo $formated_total_price ?> </span></p>
+                    <p>SUBTOTAL: <span>PKR <?php echo number_format($total_amount) ?></span></p>
                   </div>
                   <div class="checkout-btn">
-                    <a href="checkout.php?id="">PROCEED TO CHECKOUT</a>
+                    <a href="checkout.php?id=''">PROCEED TO CHECKOUT</a>
                   </div>
                 </div>
               </div>

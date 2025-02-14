@@ -50,18 +50,6 @@
     include 'navbar.php';
     include 'connection.php';
 
-    if(isset($_SESSION['redirect_cart_page'])){
-      $redirect_url = $_SESSION['redirect_cart_page'];
-      unset($_SESSION['redirect_cart_page']);
-      header("Location: $redirect_url");
-      exit();
-    }
-    // else{
-    //   header("Location: index.php");
-    //   exit();  
-    // }
-
-
 
     if(isset($_POST['submit'])){
       $email = $_POST['email'];
@@ -84,6 +72,19 @@
             $_SESSION['role'] = 'user';
           }
          
+          
+        if(isset($_SESSION['signup_id']) && isset($_SESSION['redirect_cart_page'])){
+          $redirect_url = $_SESSION['redirect_cart_page'];
+          unset($_SESSION['redirect_cart_page']);
+          header("Location: $redirect_url");
+          exit();
+        }
+        else{
+          header("Location: index.php");
+          exit();  
+        }
+
+
         }else{
           $_SESSION['login_message'] = "Incorrect password !";
           $_SESSION['login_message_type'] = "error";

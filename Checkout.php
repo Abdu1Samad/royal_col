@@ -5,17 +5,20 @@
    session_start();
    include 'connection.php';
 
+   $total_amount = 0;
+
   if(isset($_SESSION['cart'])){
 
     foreach($_SESSION['cart'] as $item){
+
         $product_name = $item['product_name'];
-        $product_price = $item['product_price'];
-        $product_qty = $item['qty'];
+        // $product_price = $item['product_price'];
+        // $product_qty = $item['qty'];
+        $sub_total = $item['product_price'] * $item['qty'];
     }
 
-    $total_amount = $product_price*$product_qty;
+        // $total_amount += $sub_total;
 
-    $formated_total_amount = number_format($total_amount);
   }
 
 
@@ -100,27 +103,41 @@
     }
 
     if($haserror == false){
-      $checkout_insert_data = "INSERT INTO checkout (`Id`,`F_name`,`L_name`,`Company_name`,`Adress`,`City`,`Country`,`Postcode`,`Phone_no`,`Email`,`Date_time`) VALUES (null,'$F_name','$L_name','$Company_name','$Adress','$City','$Country','$Postcode','$Phone_no','$Email',Now())";
 
-      $checkout_insert_query = mysqli_query($con,$checkout_insert_data);
+        // $cart_id = $
+        $user_id = $_SESSION['signup_id']; 
+        $product_price = $_SESSION['product_price'];
+ 
+        if(isset($_SESSION['cart'])){
 
-      if($checkout_insert_query){
-        ?>
-        <script>
-          alert("Inserted succesfully")
-        </script>
-        <?php
-      }
-      else{
-        ?>
-        <script>
-          alert("Inserted error");
-        </script>
-        <?php
+          foreach($_SESSION['cart'] as $item){
+
+            $product_id = $item['product_id'];
+            $cart_id = $item['cart_id'];
+            $quantity = $item['qty'];
+            $total = $product_price * $quantity;
+            
+            $checkout_insert_query = "INSERT INTO Orders (`Id`,`F_name`,`L_name`,`Company_name`,`Adress`,`City`,`Country`,`Postcode`,`Phone_no`,`Email`,`Date_time`,`user_id`,`product_id`,`quanttiy`,`total_price`,`cart_id`) VALUES (null,'$F_name','$L_name','$Company_name','$Adress','$City','$Country','$Postcode','$Phone_no','$Email',Now(),'$user_id','$product_id','$quantity','$total','$cart_id')";
+
+            $execute_checkout_insert_query = mysqli_query($con,$checkout_insert_query);
+      
+              if($execute_checkout_insert_query){
+                ?>
+                <script>
+                  alert("Inserted succesfully")
+                </script>
+                <?php
+              }
+              else{
+                ?>
+                <script>
+                  alert("Inserted error");
+                </script>
+                <?php
+              }
+          }
       }
     }
-  
-   
   }
    
    
@@ -310,12 +327,24 @@
                         <div class="checkout-right-ul">
                             <label for="" class="right-section-dark">PRODUCT <span></span> SUBTOTAL</label>
                             <!-- <li>  echo .$product_name.'.<span></span>.'. $product_price ;</li> -->
-                            <li>
-                              <span style="float: left;"><?php echo $product_name; ?></span>
-                              <span style="float: right;"><?php echo $formated_total_amount; ?></span>
-                            </li>
+                             <?php
+                             if(isset($_SESSION['cart'])){
 
-                            <label for="">TOTAL <span></span> PKR <?php echo $formated_total_amount;?></label>
+                                  foreach($_SESSION['cart'] as $item){
+                                    $sub_total = $item['product_price'] * $item['qty'];
+
+                                    $total_amount += $sub_total;
+                               
+                             ?>
+                            <li>
+                              <span style="float: left;"><?php echo $item['product_name']; ?></span>
+                              <span style="float: right;"><?php echo number_format($sub_total); ?></span>
+                            </li>
+                            <?php
+                            }
+                          }
+                          ?>
+                            <label for="">TOTAL <span></span> PKR <?php echo number_format($total_amount);?></label>
                         </div>
                         <div class="checkout-right-payment-img">
                             <label for="">SELECT PAYMENT METHOD<span></span></label>

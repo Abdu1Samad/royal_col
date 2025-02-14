@@ -86,7 +86,7 @@
                 </div>
             <div class=" products-details-right-content">
                 <h3><?php echo $product_data['product_name'];?></h3>
-                <p class="product-details-para1"><span>PKR</span> <?php echo $product_data['product_price'];?></p>
+                <p class="product-details-para1"><span>PKR</span> <?php echo number_format($product_data['product_price']);?></p>
                 <p class="product-details-para2">
                 <?php
                 $rating = $product_data['product_rating'];

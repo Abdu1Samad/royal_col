@@ -190,6 +190,30 @@
             </div>
            </div>
 
+
+
+           <!-- Brands-logos_section  -->
+
+           <section class="brands-section"> 
+            <div class="brands-container">
+                <div class="brands-content row">
+                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
+                    <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  </div>
+                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
+                  <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  </div>
+                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
+                  <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  </div>
+                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
+                  <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  </div>
+                </div>
+            </div>
+           </section>
+
+
            
           <!-- php  -->
           <?php

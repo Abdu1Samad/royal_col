@@ -91,7 +91,6 @@
       <!-- php  -->
       <?php
         while($row = mysqli_fetch_assoc($fetch_query)){
-     
       ?>
      <div class="products-card">
       <a class="product-id-fetching-anchor" href="./product-details.php?product_id=<?php echo $row['product_id']?>">
