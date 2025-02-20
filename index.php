@@ -29,6 +29,8 @@
 
   <!-- my-css-link  -->
   <link rel="stylesheet" href="css-files-floder/style.css">
+  <link rel="stylesheet" href="css-files-floder/about.css">
+  
 
     <!-- php  -->
     <?php
@@ -192,22 +194,96 @@
 
 
 
+
+          
+  <!-- about-Testimonail  -->
+
+  <section class="about-testimonail-section" style="margin-top:150px; width:100%;">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="testimonial-heading">
+        <h2>TESTIMONIALS</h2>
+      </div>
+        <div class="carousel-item active">
+          <div class="testimonial-content-1" >
+          <img src="images/testimonial-person-1.png" class="" alt="...">
+          <label for="">Michael Clarke</label>
+          <p>"Shopping at ROYAL COLLECTION is a pleasure! Their user-friendly website made finding what I needed a breeze, and the variety of products is outstanding. I couldn't be happier with my purchase."
+          </p>
+          </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="testimonial-content-1">
+            <img src="images/testimonial-person-2.png" class="" alt="...">
+            <label for="">David Ramirez</label>
+            <p>"I've been a loyal customer of ROYAL COLLECTION for a while now. The selection of products is vast, the prices are competitive, and the shipping is always on time. It's a one-stop shop for all my needs!"
+            </p>
+         </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="testimonial-content-1">
+            <img src="images/testimonail-person-3.png" class="" alt="...">
+            <label for="">Sarah Anderson</label>
+            <p>"I've shopped online extensively, and ROYAL COLLECTION stands out as one of the best. Their customer service is top-notch, and the products are of the highest quality. I highly recommend them to anyone looking for great deals and a seamless shopping experience."
+            </p>
+         </div>
+        </div>
+         <div class="carousel-item">
+          <div class="testimonial-content-1">
+            <img src="images/testimonial-person-4.png" class="" alt="...">
+            <label for="">Mark Daniel</label>
+            <p>"I recently ordered from ROYAL COLLECTION and was impressed with the product's quality and the quick delivery. The website is well-organized, making it easy to find what I was looking for. This is my new go-to for online shopping."
+            </p>
+         </div>
+        </div>
+         <div class="carousel-item">
+          <div class="testimonial-content-1">
+            <img src="images/testimonial-person-5.png" class="" alt="...">
+            <label for="">Laura John </label>
+            <p>"I am beyond thrilled with my recent purchase from ROYAL COLLECTION. The product quality exceeded my expectations, and the speedy delivery made my shopping experience truly exceptional. I'll definitely be back for more!"
+            </p>
+         </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+           <!-- home-banner  -->
+
+           <section class="home-banner-section">
+           <div class="home-banner-container">
+              <div class="home-banner-content">
+                <div class="home-banner-img">
+                  <img src="https://img.freepik.com/free-photo/sexy-smiling-beautiful-woman-her-handsome-boyfriend-happy-cheerful-family-having-tender-moments-near-yellow-wall-studiopure-cheerful-models-huggingembracing-each-other_158538-22535.jpg" alt="">
+                </div>
+                <div class="home-banner-para">
+                  <p>&ldquo; Whatever you <span> love </span> make it truly yours&ldquo;</p>
+                </div>
+                <div class="home-banner-btn">
+                  <a href="">SHOP NOW</a>
+                </div>
+              </div>
+           </div>
+          </section>
+
            <!-- Brands-logos_section  -->
 
            <section class="brands-section"> 
             <div class="brands-container">
                 <div class="brands-content row">
-                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
-                    <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  <div class="brands-logos col-12 col-sm-6 col-md-4 col-lg-3">
+                    <img src="images/adidas-logo.png" alt="">
                   </div>
-                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
-                  <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  <div class="brands-logos col-12 col-sm-6 col-md-4 col-lg-3">
+                  <img src="images/sapphire_logo.png" alt="">
                   </div>
-                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
-                  <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  <div class="brands-logos col-12 col-sm-6 col-md-4 col-lg-3">
+                  <img src="images/j._logo.png" alt="">
                   </div>
-                  <div class="brands-logos col-12 col-sm-12 col-md-6 col-lg-3">
-                  <img src="https://cdn.theorg.com/01c44e3e-1acb-4675-853c-b467ebe3c5e7_medium.jpg" alt="">
+                  <div class="brands-logos col-12 col-sm-6 col-md-12 col-lg-3">
+                  <img src="images/Gul_ahmed_logo.png" alt="">
                   </div>
                 </div>
             </div>

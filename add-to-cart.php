@@ -82,7 +82,7 @@
         $cart_update_query = "UPDATE cart SET qunatity = qunatity + $qty WHERE user_id = '$user_id' AND product_id = '$product_id'";
         $execute_update_query = mysqli_query($con,$cart_update_query);
       }
-      else{`
+      else{
         $cart_insert_query = "INSERT INTO cart (`cart_id`,`user_id`,`product_id`,`qunatity`)VALUES(null,'$user_id','$product_id','$qty')";
         $execute_insert_query = mysqli_query($con,$cart_insert_query); 
       }

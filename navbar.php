@@ -19,9 +19,9 @@ ob_start();
           <li class="nav-item">
             <a class="nav-link" href="products.php">PRODUCTS</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="blogs.php">BLOGS</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="about.php">ABOUT</a>
           </li>

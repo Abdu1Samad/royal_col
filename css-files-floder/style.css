@@ -489,12 +489,12 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: transparent;
+    /* background-color: transparent; */
 }
 .card-img img{
     width:100%;
     height: 100%;
-    object-fit:contain;
+    object-fit:cover;
     object-position:center;
     mix-blend-mode: darken;
     border-top-left-radius:16px;
@@ -936,6 +936,106 @@ body{
 
 }
 
+
+/* home-banner  */
+
+.home-banner-section{
+    margin-top: 100px;
+}
+.home-banner-container{
+    overflow: hidden;
+}
+.home-banner-content{
+    position: relative;
+}
+.home-banner-img{
+    background-attachment: fixed;
+}
+.home-banner-img img{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center 10%;
+}
+.home-banner-para{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+}
+.home-banner-para p{
+    font-size: 40px;
+    width: 450px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.home-banner-para p span{
+    color: red;
+}
+.home-banner-btn{
+    position: absolute;
+    top: 240px;
+    right:300px;
+    background-color: black;
+    padding: 10px 50px;
+    transition: all ease-in-out 0.3s;
+    border-radius: 8px;
+}
+.home-banner-btn a{
+    color: black;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+.home-banner-btn:hover {
+    background-color: transparent;
+    border: 2px solid black;
+}
+.home-banner-btn:hover a{
+  color: black;
+}
+
+
+/* home-banner-Responsive  */
+
+@media (max-width:992px){
+
+    .home-banner-para{
+        right: 50px;
+    }
+    .home-banner-para p{
+        font-size: 30px;
+        width: 300px;
+    }
+    .home-banner-btn{
+        top: 210px;
+        right:200px;
+        padding: 10px 30px;
+    }
+    
+}
+
+@media (max-width:768px){
+
+    .home-banner-para{
+        right: 50px;
+    }
+    .home-banner-para p{
+        font-size: 20px;
+        width: 200px;
+    }
+    .home-banner-btn{
+        top: 180px;
+        right:120px;
+        padding: 7px 20px;
+    }
+    .home-banner-img img{
+        height: 300px;
+    }
+
+}
+
+
 /* Brands-section  */
 
 .brands-section{
@@ -944,29 +1044,42 @@ body{
     align-items: center;
 }
 .brands-container{
-    margin: 80px 50px;
+    padding-top: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center; 
+    gap:20px;
 }
 .brands-content{
     display: flex;
-    justify-content: space-between;
-    /* gap: 20px; */
+    justify-content: space-evenly;
+    align-items: center;
+    width:100%;
 }
 .brands-container img{
-    width: 200px;
+    width: 250px;
+    height:200px;
+    object-fit: cover;
+}
+.brands-logos{
+    display: flex;
+    justify-content: center;
 }
 
+/* Brands-section-Responsive  */
 
+@media (min-width:300px){
 
+    .brands-container img{
+        width: 250px;
+        height:200px;
+    }
+    .brands-container{
+        margin: 50px 0px;
+    }
+    
 
-
-
-
-
-
-
+}
 
 /* Footer  */
 

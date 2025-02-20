@@ -106,7 +106,7 @@
         <div class="testimonial-heading">
         <h2>TESTIMONIALS</h2>
       </div>
-        <div class="carousel-item active">
+        <div class="carousel-item active carousel-main">
           <div class="testimonial-content-1">
           <img src="images/testimonial-person-1.png" class="" alt="...">
           <label for="">Michael Clarke</label>
