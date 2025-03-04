@@ -12,5 +12,5 @@ Array.from(productCard).forEach((card) => {
 
     card.addEventListener('mouseout', (event) => {
         event.currentTarget.querySelector('.img-1').src = imgPreserve
-    })
+    }) 
 })

@@ -92,7 +92,7 @@
          <?php
           while($row = mysqli_fetch_Assoc($new_arrival_query)){
          ?>
-
+ 
           <div class="products-card">  
           <a class="product-id-fetching-anchor" href="product-details.php?product_id=<?php echo $row['product_id']?>">
           <div class="card-content">
