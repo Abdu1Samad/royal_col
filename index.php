@@ -37,7 +37,7 @@
     include 'navbar.php';
     include 'connection.php';
 
-    $new_arrival = "SELECT * FROM products WHERE product_id BETWEEN 1 AND 8 ORDER BY product_id DESC";
+    $new_arrival = "SELECT * FROM products ORDER BY product_id DESC limit 8 ";
     $new_arrival_query = mysqli_query($con,$new_arrival);
 
     ?> 
@@ -60,7 +60,7 @@
           </div>
         </div>
       </div>
-          <!-- <div class="carousel-item ">
+          <div class="carousel-item ">
             <img src="https://media.istockphoto.com/id/973481860/photo/handsome-young-man.jpg?s=612x612&w=0&k=20&c=G-ALY6SDn6FSQIeVUQGU-ZG8TXzMk9Dw14_QR-s-Fvw=" class="d-block w-100" alt="...">
             <div class="carousel-2-content">
               <div class="carousel-2-para-1">
@@ -73,11 +73,11 @@
                 <a href="">SHOP NOW <i class="fa-solid fa-angle-right"></i></a>
               </div>
             </div>
-          </div> -->
-          <!--<div class="carousel-item">
+          </div> 
+          <div class="carousel-item">
             <img src="https://builder.dynamicxx.com/templates/b591759d-2f78-4463-a735-388e254ec9c1/images//bg_hero.png" class="d-block w-100" alt="...">
           </div>
-        </div> -->
+        </div>
     </div> <!--Carosuel-End-->
 </div>
 
@@ -104,7 +104,7 @@
             <p><?php echo $row['product_name'];?></p>
           </div>
           <div class="card-price">
-            <p>PKR:<span><?php echo $row['product_price'];?></span></p>
+            <p>PKR:<span><?php echo number_format($row['product_price']);?></span></p>
           </div>
           <div class="card-ratings">
                <!-- php  -->
@@ -204,7 +204,7 @@
         <div class="testimonial-heading">
         <h2>TESTIMONIALS</h2>
       </div>
-        <div class="carousel-item active">
+        <div class="carousel-item active carousel-main">
           <div class="testimonial-content-1" >
           <img src="images/testimonial-person-1.png" class="" alt="...">
           <label for="">Michael Clarke</label>
@@ -212,7 +212,7 @@
           </p>
           </div>
         </div>
-        <div class="carousel-item ">
+        <div class="carousel-item  carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonial-person-2.png" class="" alt="...">
             <label for="">David Ramirez</label>
@@ -220,7 +220,7 @@
             </p>
          </div>
         </div>
-        <div class="carousel-item ">
+        <div class="carousel-item  carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonail-person-3.png" class="" alt="...">
             <label for="">Sarah Anderson</label>
@@ -228,7 +228,7 @@
             </p>
          </div>
         </div>
-         <div class="carousel-item">
+         <div class="carousel-item  carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonial-person-4.png" class="" alt="...">
             <label for="">Mark Daniel</label>
@@ -236,7 +236,7 @@
             </p>
          </div>
         </div>
-         <div class="carousel-item">
+         <div class="carousel-item  carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonial-person-5.png" class="" alt="...">
             <label for="">Laura John </label>
@@ -256,7 +256,7 @@
            <div class="home-banner-container">
               <div class="home-banner-content">
                 <div class="home-banner-img">
-                  <img src="https://img.freepik.com/free-photo/sexy-smiling-beautiful-woman-her-handsome-boyfriend-happy-cheerful-family-having-tender-moments-near-yellow-wall-studiopure-cheerful-models-huggingembracing-each-other_158538-22535.jpg" alt="">
+                  <img src="https://img.freepik.com/free-photo/sexy-smiling-beautiful-woman-her-handsome-boyfriend-happy-cheerful-family-having-tender-momentsyoung-passionate-couple-hugging-before-having-sex-sensual-pair-getting-closer-kiss-isolated_158538-22597.jpg?t=st=1740479831~exp=1740483431~hmac=d0e002dc8ac2a415af449f6252bbe1fb7d1ea335978c0a5aee7c194a80230330&w=1060" alt="">
                 </div>
                 <div class="home-banner-para">
                   <p>&ldquo; Whatever you <span> love </span> make it truly yours&ldquo;</p>

@@ -5,6 +5,10 @@
     session_start();
     include 'connection.php';
 
+    if(!isset($_POST['checkout_btn']) && isset($_SESSION['errors'])){
+      unset($_SESSION['errors']);
+    }
+
     $total_amount = 0;
 
     if(isset($_SESSION['cart'])){
@@ -20,10 +24,10 @@
 
     $haserror = false;
 
+
     if ($haserror == false) {
       unset($_SESSION['errors']);
     }
-
 
     if(isset($_POST['checkout_btn'])){
 
@@ -53,6 +57,8 @@
 
         ];
       }
+
+      
     }
       if(empty($F_name)){
         $_SESSION['errors']['F_name'] = "Please enter first name in this field!"; 
@@ -81,6 +87,9 @@
       if(empty($Postcode)){
         $_SESSION['errors']['Postcode'] = "Please enter your Postal/Zipcode!"; 
         $haserror = true;
+      }else if(strlen(trim($Postcode)) !==5){
+        $_SESSION['errors']['Postcode'] = "Please enter a valid 5-digit postal code "; 
+        $haserror = true;
       }
       if(empty($Phone_no)){
         $_SESSION['errors']['Phone'] = "Please enter your phone number!"; 
@@ -99,79 +108,65 @@
 
       if($haserror == false){
          
-        $user_id = isset($_SESSION['cart']);
-        
-        $select_data_from_cart = "SELECT cart_id, product_id, qunatity, 
-                   (SELECT product_price FROM products WHERE product_id = cart.product_id) AS product_price 
-                   FROM cart 
-                   WHERE user_id='$user_id'";
+        $user_id = $_SESSION['signup_id'];
 
-        $result_select_data_query = mysqli_query($con,$select_data_from_cart);
-        
-        if(mysqli_fetch_assoc($result_select_data_query)){
+        $total_amount = 0;
 
-          $total_amount = 0;
-          $cart_item = array();
+        if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 
-          while($row = mysqli_fetch_assoc($result_select_data_query)){
+          foreach($_SESSION['cart'] as $item){
 
-            $quantity = $row['qunatity'];
-            $product_price = $row['product_price'];
+            $qty = $item['qty']; 
+            $price = $item['product_price'];
 
-            $sub_total = $quantity * $product_price;
-            $total_amount += $sub_total;
-
-            $cart_item[] = array(
-
-              'cart_id' => $row['cart_id'], 
-              'product_id' => $row['product_id'],
-              'qunatity' => $quantity,
-              'product_price' => $product_price,
-              'sub_total' => $sub_total
-
-            );
+            $total_amount += $qty*$price;   
 
           }
 
-                    
-              $insert_order_data = "INSERT INTO orders 
-              (F_name, L_name, Company_name, Adress, City, Country, Postcode, Phone_no, Email, user_id, total_price, order_date)
-              VALUES ('$F_name', '$L_name', '$Company_name', '$Adress', '$City', '$Country', '$Postcode', '$Phone_no', '$Email', '$user_id', '$total_price', NOW())";
+          $insert_orders_table = "INSERT INTO Orders (`Order_id`,`F_name`,`L_name`,`Company_name`,`Adress`,`City`,`Country`,`Postcode`,`Phone_no`,`Email`,`user_id`,`total_price`,`order_date`) VALUES (null,'$F_name','$L_name','$Company_name','$Adress','$City','$Country','$Postcode','$Phone_no','$Email','$user_id','$total_amount',Now())"; 
 
-              if(mysqli_query($con,$insert_order_data)){
-                $order_id = mysqli_insert_id($con);
-            
-                // Insert each item into order_items table
-                foreach($cart_items as $item){
-                    $prod_id = $item['product_id'];
-                    $quantity = $item['quantity'];
-                    $price = $item['price'];
-                    $sub_total = $item['sub_total'];
-                    
-                    $item_sql = "INSERT INTO order_items (order_id, product_id, quantity, price, total_price)
-                                 VALUES ('$order_id', '$prod_id', '$quantity', '$price', '$sub_total')";
-                    mysqli_query($con, $item_sql);
-                }
-                
-                // Delete cart items for the user after successful order placement
-                $delete_sql = "DELETE FROM cart WHERE user_id='$user_id'";
-                mysqli_query($con, $delete_sql);
-                
-                echo "<script>
-                        alert('Order placed successfully');
-                        window.location.href = 'thankyou.php';
-                      </script>";
-                exit;
-            } else {
-                echo "Error inserting order: " . mysqli_error($con);
+          $result_insert_orders_table = mysqli_query($con,$insert_orders_table);
+
+          if($result_insert_orders_table){
+
+            $order_id = mysqli_insert_id($con);
+
+            foreach($_SESSION['cart'] as $item){
+
+              $qty = $item['qty'];
+              $price = $item['product_price'];
+
+              $item_total = $qty * $price ;
+              $product_id = $item['product_id'];
+              
+              $insert_order_items = "INSERT INTO Order_items (`order_item_id`,`order_id`,`product_id`,`quantity`,`price`,`total_price`) VALUES (null,'$order_id','$product_id','$qty','$price','$item_total')";
+
+              $result_insert_order_items = mysqli_query($con, $insert_order_items);
+
+
+
+              if (!$result_insert_order_items) {
+                  echo "Error in inserting order item: " . mysqli_error($con);
+              }
+
             }
             
-        } else {
-            echo "<script>alert('Your cart is empty');</script>";
+            unset($_SESSION['cart']);
+
+            if ($result_insert_order_items){
+              
+              header("Location: thankyou.php");
+              exit();
+
+            }
+
+          }
+
         }
-    }
-  
-       
+
+      } else {
+            echo "<script>alert('Your cart is empty');</script>";
+      }       
 
   ?>
   <!DOCTYPE html>
@@ -214,7 +209,7 @@
 
     <!-- php  -->
     <?php
-    // include 'navbar.php';
+    include 'navbar.php';
     ?> 
 
   </head>

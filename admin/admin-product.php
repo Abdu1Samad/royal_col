@@ -11,10 +11,10 @@
 
 
     if(isset($_POST['submit'])){
-        $name = trim($_POST['name']);
-        $price = trim($_POST['price']);
-        $rating = trim($_POST['rating']);
-        $desc = trim($_POST['desc']);
+        $name = mysqli_real_escape_string($con, trim($_POST['name']));
+        $price = mysqli_real_escape_string ($con, trim($_POST['price']));
+        $rating = mysqli_real_escape_string ($con,trim($_POST['rating']));
+        $desc = mysqli_real_escape_string ($con,trim($_POST['desc']));
 
         $img1 = null;
         $img2 = null;

@@ -114,7 +114,7 @@
           </p>
           </div>
         </div>
-        <div class="carousel-item ">
+        <div class="carousel-item carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonial-person-2.png" class="" alt="...">
             <label for="">David Ramirez</label>
@@ -122,7 +122,7 @@
             </p>
          </div>
         </div>
-        <div class="carousel-item ">
+        <div class="carousel-item carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonail-person-3.png" class="" alt="...">
             <label for="">Sarah Anderson</label>
@@ -130,7 +130,7 @@
             </p>
          </div>
         </div>
-         <div class="carousel-item">
+         <div class="carousel-item carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonial-person-4.png" class="" alt="...">
             <label for="">Mark Daniel</label>
@@ -138,7 +138,7 @@
             </p>
          </div>
         </div>
-         <div class="carousel-item">
+         <div class="carousel-item carousel-main">
           <div class="testimonial-content-1">
             <img src="images/testimonial-person-5.png" class="" alt="...">
             <label for="">Laura John </label>

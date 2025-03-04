@@ -27,13 +27,14 @@
     margin-right: 10px;
 }
 .other-imgs .product-img-1, .product-img-2, .product-img-3{
-    width: 100px;
+    width: 60px;
     height: 100px;
 }
 .other-imgs img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top center;
 }   
 .main-img{
     display: flex;
