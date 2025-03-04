@@ -96,7 +96,8 @@
       <a class="product-id-fetching-anchor" href="./product-details.php?product_id=<?php echo $row['product_id']?>">
             <div class="card-content">
             <div class="card-img">
-              <input type="hidden" class="img-2" value="<?php echo "admin/" . $row['product-img-2'];?>">
+              <!-- Iss input ki value mein tune echo admin . $row karke likha tha jisse do bar admin path mein arha tha tabhi change nahi horhi thi images -->
+              <input type="hidden" class="img-2" value="<?php echo $row['product-img-2'];?>">
               <img class="img-1" src="admin/<?php echo $row['product_img'];?>" alt="">
             </div>
           <div class="card-title">

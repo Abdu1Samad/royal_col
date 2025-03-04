@@ -31,6 +31,17 @@
 
     if(isset($_POST['checkout_btn'])){
 
+      // Alert ko yahi dikha de neechy tune logical issue kia tha tabhi nahi chal rha tha. Alert ka issue ye tha k upar tune $haserror variable ko check kia hai agar false ho to ye saara code chale aur agar true hojaye to alert('Your cart is empty') ajaye jo logical issue hai. Tujhe cart k empty hone par alert dikhana hai naa k $haserror par:
+
+      if(empty($_SESSION['cart'])){
+        echo '<script>alert("Your cart is empty")</script>';
+        exit(); // Iske bad aage code execute nahi hoga.
+      }
+
+      // Best practice ye hai k user ke checkout tak pohnchne par hi check karwa leke cart empty to nahi agar empty ho to seedha cart ke page par redirect karwa de phir woh products purchase karke wapsi aye.
+
+
+
       $F_name = trim($_POST['F_name']);
       $L_name = trim($_POST['L_name']);
       $Company_name = trim($_POST['Company_name']);
@@ -58,8 +69,9 @@
         ];
       }
 
-      
-    }
+
+      // Ye saare ifs isset($_POST['checkout-btn']) wali if ke baahir daale hue they to isko saar variables empty mil rahe they aur ye $haserror ko true kar raha tha jisse page khulte hai validation ke errors show rahe they tujhe.
+
       if(empty($F_name)){
         $_SESSION['errors']['F_name'] = "Please enter first name in this field!"; 
         $haserror = true;
@@ -105,6 +117,7 @@
         $_SESSION['errors']['Email'] = "Please enter @ in your email!";
         $haserror = true;
       }
+
 
       if($haserror == false){
          
@@ -164,9 +177,12 @@
 
         }
 
-      } else {
-            echo "<script>alert('Your cart is empty');</script>";
-      }       
+      }
+
+    }
+      
+
+            
 
   ?>
   <!DOCTYPE html>
@@ -419,7 +435,7 @@
   <!-- Bootstrap-Javascript-link -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-  crossorigin="anonymous"></scrip> 
+  crossorigin="anonymous"></script> 
   
   
 
