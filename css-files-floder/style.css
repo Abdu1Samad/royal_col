@@ -209,7 +209,7 @@ body{
 }
 .carousel-1-para-1 span{
     /* color:#00cbdd; */
-    color: rgba(255, 196, 133, 0.9);
+    color:rgba(255, 161, 62, 0.9);
     font-weight: 900;
 }
 .carousel-1-para-2{
@@ -237,12 +237,13 @@ body{
     border-radius: 8px;
     margin-top: 10%;
     font-size: 18px;
-}
-.carousel-1-button:hover{
-    transform: translateY(-10px);
+    font-weight: 600;
+    transition: all ease-in-out 0.3s;
 }
 .carousel-1-btn:hover{
-    color:white;  
+    color:black;
+    background-color: transparent;  
+    border: 1px solid black;
 }
 
 /* Carousel-1-Responsive  */
@@ -356,7 +357,7 @@ body{
 .carousel-2-para-1{
     font-size: 30px;
     line-height: 0px;
-    color:  rgba(255, 196, 133, 0.9);
+    color: rgba(255, 161, 62, 0.9);
     font-weight: 600;
 }
 .carousel-2-para-2{
@@ -366,7 +367,7 @@ body{
     font-weight: 600;
 }
 .carousel-2-para-2 span{
-    color:  rgba(255, 196, 133, 0.9);
+    color:  rgba(255, 161, 62, 0.9);
     font-weight: 700;
 }
 .carousel-btn{
@@ -459,9 +460,10 @@ body{
 .new-arrival-container{
     margin: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 .new-arrival-heading{
     text-align: center;
@@ -475,10 +477,10 @@ body{
     width: 300px;
     height: 500px;
     /* border:1px solid grey; */
-    margin-left: 20px;
+    /* margin-left: 20px; */
     border-radius: 16px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-    line-height: 28px;
+    /* line-height: 28px; */
     display: flex;
     margin-top: 50px;
     overflow: hidden;
@@ -544,7 +546,7 @@ body{
 }
 
 /* New-arival-card-Responsive  */
-
+/* 
 @media(max-width:1320px){
         
     .new-arrival-container{
@@ -552,7 +554,7 @@ body{
         justify-content: center;
     }
 
-}
+} */
 @media(max-width:500px){
 
     .new-arrival-heading h2{
@@ -932,7 +934,10 @@ body{
     }
     .category-products-content-1 .categories-para-2{
         font-size: 5vw;
-    }   
+    }       
+    .categories-heading h2{
+        font-size: 40px;
+    }
 
 }
 
@@ -946,38 +951,37 @@ body{
     overflow: hidden;
 }
 .home-banner-content{
-    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 30px;
+    height: 500px;
 }
 .home-banner-img{
-    background-attachment: fixed;
-}
-.home-banner-img img{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6)), url('https://img.freepik.com/free-photo/sexy-smiling-beautiful-woman-her-handsome-boyfriend-happy-cheerful-family-having-tender-momentsyoung-passionate-couple-hugging-before-having-sex-sensual-pair-getting-closer-kiss-isolated_158538-22597.jpg?t=st=1740479831~exp=1740483431~hmac=d0e002dc8ac2a415af449f6252bbe1fb7d1ea335978c0a5aee7c194a80230330&w=1060');
     width: 100%;
-    height: 600px;
-    object-fit: cover;
-    object-position: 50% 10%;
-    /* filter: brightness(90%); */
-}
-.home-banner-para{
-    position: absolute;
-    top: 130px;
-    right: 30px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position:  top center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 .home-banner-para p{
     font-size: 40px;
     width: 450px;
     font-weight: 600;
     text-transform: capitalize;
+    color:black;
 }
 .home-banner-para p span{
     color: red;
 }
 .home-banner-btn{
-    position: absolute;
-    top: 260px;
-    right:280px;
+    margin-right: 290px;
+    display: flex;
     background-color: black;
-    padding: 10px 50px;
+    padding: 10px 30px;
     transition: all ease-in-out 0.3s;
     border-radius: 8px;
 }
@@ -998,52 +1002,63 @@ body{
 
  
 /* home-banner-Responsive  */
- 
-@media (max-width:992px){
 
-    .home-banner-para{
-        right: 50px;
-    }
+@media (max-width:992px){
+    
+    .home-banner-content{
+        padding-right: 0px;
+    }    
     .home-banner-para p{
         font-size: 30px;
-        width: 300px;
+        width: 350px;
+    }    
+    .home-banner-btn{
+        margin-right: 210px;
+        padding: 10px 20px;
+    }
+
+}
+@media (max-width:768px){
+    
+    .home-banner-img{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('https://img.freepik.com/free-photo/sexy-smiling-beautiful-woman-her-handsome-boyfriend-happy-cheerful-family-having-tender-momentsyoung-passionate-couple-hugging-before-having-sex-sensual-pair-getting-closer-kiss-isolated_158538-22597.jpg?t=st=1740479831~exp=1740483431~hmac=d0e002dc8ac2a415af449f6252bbe1fb7d1ea335978c0a5aee7c194a80230330&w=1060');    
+    }
+    .home-banner-content{
+        padding-right: 0px;
+        height: 400px;
+        align-items: center;
+        padding-left: 70px;
+    }    
+    .home-banner-para p{
+        font-size: 30px;
+        width: 350px;
+        color: whitesmoke;
+    }    
+    .home-banner-para p span{
+        font-weight: 700;
     }
     .home-banner-btn{
-        top: 230px;
-        right:190px;
-        padding: 10px 30px;
+        margin-right: 100px;
+        padding: 10px 20px;
     }
-    
-}
+    .home-banner-img{
+        height:400px;
+    }
 
-@media (max-width:768px){
+} 
 
-    .home-banner-para{
-        top: 110px;
-        right: 50px;
+@media(max-width:400px){
+
+    .home-banner-content{
+        padding-left: 40px;
     }
     .home-banner-para p{
-        font-size: 20px;
-        width: 200px;
+        font-size: 24px;
+        width: 250px;
     }
     .home-banner-btn{
-        top: 180px;
-        right:130px;
-        padding: 7px 16px;
-    }
-    .home-banner-btn a{
-        font-size: 16px;
-    }
-    .home-banner-img img{
-        height: 300px;
-    }
-
-}
-
-@media (max-width:576px){
-    
-    .home-banner-section{
-        margin-top: 50px;
+        margin-right: 50px;
+        padding: 10px 16px;
     }
 
 }
